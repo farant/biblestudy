@@ -1,0 +1,143 @@
+/*
+    WHAT IS THIS FILE?
+    This is your stylesheet (CSS = Cascading Style Sheets).
+    It controls how your site LOOKS — colors, fonts, spacing, etc.
+    The HTML file controls what CONTENT appears; this file controls
+    how that content is styled.
+
+    CSS works by selecting HTML elements and applying styles to them.
+    For example:
+        body { background-color: white; }
+    This says "make the background of the <body> element white."
+
+    Feel free to change any of the colors or sizes below!
+*/
+
+/* ---- GENERAL PAGE STYLES ---- */
+
+/* The * selector applies to everything — this resets default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.7;
+    color: #333;
+    background-color: #faf8f5;
+}
+
+/* ---- HEADER (top banner) ---- */
+
+header {
+    background-color: #4a5568;
+    color: white;
+    text-align: center;
+    padding: 2.5rem 1rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.subtitle {
+    font-style: italic;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* ---- MAIN CONTENT ---- */
+
+main {
+    max-width: 750px;
+    margin: 0 auto;         /* "auto" left/right margins = centered on the page */
+    padding: 2rem 1.5rem;
+}
+
+/* Each <section> gets some spacing */
+section {
+    margin-bottom: 2.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #4a5568;
+    margin-bottom: 0.8rem;
+    border-bottom: 2px solid #e2d8ce;
+    padding-bottom: 0.3rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* ---- VERSE / BLOCKQUOTE ---- */
+
+blockquote {
+    background-color: #f0ebe4;
+    border-left: 4px solid #8b7355;
+    padding: 1.2rem 1.5rem;
+    margin: 1rem 0;
+    font-style: italic;
+    font-size: 1.15rem;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 0.7rem;
+    font-size: 0.95rem;
+    color: #6b5b4a;
+}
+
+/* ---- LISTS ---- */
+
+ul {
+    margin: 0.5rem 0 1rem 1.5rem;   /* left margin creates the indent */
+}
+
+li {
+    margin-bottom: 0.4rem;
+}
+
+/* ---- LINKS ---- */
+
+a {
+    color: #5a7a9b;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ---- FOOTER ---- */
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #888;
+    font-size: 0.9rem;
+    border-top: 1px solid #e2d8ce;
+    margin-top: 2rem;
+}
+
+/* ---- MOBILE FRIENDLY ----
+   This makes the site look good on phones.
+   @media means "only apply these styles when the screen is this size or smaller."
+*/
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    main {
+        padding: 1.5rem 1rem;
+    }
+
+    blockquote {
+        padding: 1rem;
+    }
+}

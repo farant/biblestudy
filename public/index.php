@@ -221,10 +221,19 @@ function handlePostDelete(): void {
         return;
     }
 
-    // Get section before deleting (for redirect)
-    $stmt = $db->prepare('SELECT section FROM posts WHERE id = ?');
+    // Get post info before deleting
+    $stmt = $db->prepare('SELECT section, image_url FROM posts WHERE id = ?');
     $stmt->execute([$postId]);
-    $section = $stmt->fetchColumn();
+    $post = $stmt->fetch();
+    $section = $post['section'] ?? 'community';
+
+    // Delete the uploaded image from disk
+    if (!empty($post['image_url'])) {
+        $filePath = '/railway-volume' . $post['image_url'];
+        if (is_file($filePath)) {
+            unlink($filePath);
+        }
+    }
 
     // Delete post (comments cascade automatically)
     $stmt = $db->prepare('DELETE FROM posts WHERE id = ?');

@@ -1,8 +1,9 @@
 FROM php:8.3-fpm-alpine
 
-# Install PostgreSQL PDO driver and nginx
-RUN apk add --no-cache nginx libpq-dev \
-    && docker-php-ext-install pdo pdo_pgsql
+# Install PostgreSQL PDO driver, GD for image resizing, and nginx
+RUN apk add --no-cache nginx libpq-dev freetype-dev libjpeg-turbo-dev libpng-dev libwebp-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
+    && docker-php-ext-install pdo pdo_pgsql gd
 
 # Copy nginx config
 COPY nginx.conf /etc/nginx/http.d/default.conf

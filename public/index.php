@@ -333,12 +333,49 @@ function handleImageUpload(array $file): ?string {
         mkdir($uploadDir, 0755, true);
     }
 
-    $filename = bin2hex(random_bytes(16)) . '.' . $ext;
+    $filename = bin2hex(random_bytes(16)) . '.jpg';
     $destPath = $uploadDir . '/' . $filename;
 
-    if (move_uploaded_file($file['tmp_name'], $destPath)) {
+    if (!move_uploaded_file($file['tmp_name'], $destPath)) {
+        return null;
+    }
+
+    // Resize and convert to JPEG
+    $resized = resizeImage($destPath, 1200, 80);
+    if ($resized) {
         return '/uploads/' . $filename;
     }
 
-    return null;
+    // If resize fails, keep the original
+    return '/uploads/' . $filename;
+}
+
+function resizeImage(string $path, int $maxDim, int $quality): bool {
+    $src = @imagecreatefromstring(file_get_contents($path));
+    if (!$src) {
+        return false;
+    }
+
+    $origW = imagesx($src);
+    $origH = imagesy($src);
+
+    // Only resize if larger than max dimension
+    if ($origW > $maxDim || $origH > $maxDim) {
+        if ($origW >= $origH) {
+            $newW = $maxDim;
+            $newH = (int) round($origH * ($maxDim / $origW));
+        } else {
+            $newH = $maxDim;
+            $newW = (int) round($origW * ($maxDim / $origH));
+        }
+
+        $dst = imagecreatetruecolor($newW, $newH);
+        imagecopyresampled($dst, $src, 0, 0, 0, 0, $newW, $newH, $origW, $origH);
+        imagedestroy($src);
+        $src = $dst;
+    }
+
+    $result = imagejpeg($src, $path, $quality);
+    imagedestroy($src);
+    return $result;
 }

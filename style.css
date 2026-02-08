@@ -18,7 +18,7 @@
  *    8. Mobile styles
  *
  *  To change colors, look for "color:" or "background" lines.
- *  The main gold color is #8B6914. The parchment color is #f5ecd7.
+ *  The main gold color is #8B6914. Text is cream #f0e6d0 on dark #1a0f0a background.
  * ==========================================================
  */
 
@@ -46,9 +46,8 @@ body {
     font-family: 'Crimson Text', Georgia, serif;
     font-size: 18px;
     line-height: 1.8;
-    color: #2c1810;
+    color: #f0e6d0;
     background-color: #1a0f0a;
-    /* Dark wood-like background behind the "page" */
     background-image:
         radial-gradient(ellipse at center, #2a1a10 0%, #0d0805 100%);
     min-height: 100vh;
@@ -63,22 +62,18 @@ body {
 .page-frame {
     max-width: 1100px;
     margin: 2rem auto;
-    background-color: #f5ecd7;
-    /* Parchment texture effect using CSS gradients */
+    background-color: #1a0f0a;
+    /* Dark wood texture effect using CSS gradients */
     background-image:
-        linear-gradient(rgba(139, 105, 20, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139, 105, 20, 0.03) 1px, transparent 1px),
-        radial-gradient(ellipse at 20% 50%, rgba(210, 180, 120, 0.15), transparent 50%),
-        radial-gradient(ellipse at 80% 50%, rgba(180, 150, 100, 0.1), transparent 50%);
-    background-size: 20px 20px, 20px 20px, 100% 100%, 100% 100%;
+        radial-gradient(ellipse at 20% 50%, rgba(139, 105, 20, 0.08), transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(139, 105, 20, 0.05), transparent 50%);
     position: relative;
     box-shadow:
         0 0 0 3px #8B6914,
-        0 0 0 6px #f5ecd7,
+        0 0 0 6px #1a0f0a,
         0 0 0 8px #8B6914,
         0 0 0 14px #5c4a1e,
         0 0 40px rgba(0, 0, 0, 0.5);
-    /* The multi-layer box-shadow creates the ornate gold border effect */
 }
 
 /* Decorative corner ornaments using SVG images */
@@ -107,7 +102,7 @@ body {
 
 /* Inner border decoration */
 .page-inner {
-    border: 1px solid rgba(139, 105, 20, 0.3);
+    border: 1px solid rgba(139, 105, 20, 0.4);
     margin: 12px;
     padding: 0;
     position: relative;
@@ -147,7 +142,7 @@ body {
     border-bottom: 2px solid #8B6914;
     position: relative;
     background: linear-gradient(to bottom,
-        rgba(139, 105, 20, 0.08),
+        rgba(139, 105, 20, 0.15),
         transparent);
 }
 
@@ -183,7 +178,7 @@ body {
     border: 3px solid #8B6914;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    background-color: #e8dcc6;
+    background-color: #2a1a10;
 }
 
 .header-portrait img {
@@ -208,16 +203,16 @@ body {
 .site-header h1 {
     font-family: 'Uncial Antiqua', 'IM Fell English SC', serif;
     font-size: 2rem;
-    color: #4a2c0a;
+    color: #f0e6d0;
     letter-spacing: 0.05em;
     line-height: 1.3;
-    text-shadow: 1px 1px 2px rgba(139, 105, 20, 0.2);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .site-header .subtitle {
     font-family: 'IM Fell English SC', serif;
     font-size: 1.05rem;
-    color: #7a5c2e;
+    color: #c4a95a;
     margin-top: 0.3rem;
     font-style: italic;
 }
@@ -243,7 +238,7 @@ body {
     gap: 0.3rem;
     padding: 1rem 1.5rem;
     background: linear-gradient(to bottom,
-        rgba(139, 105, 20, 0.06),
+        rgba(139, 105, 20, 0.1),
         transparent);
     border-bottom: 1px solid rgba(139, 105, 20, 0.25);
 }
@@ -251,7 +246,7 @@ body {
 .site-nav a {
     font-family: 'IM Fell English SC', serif;
     font-size: 1.2rem;
-    color: #5c3a0a;
+    color: #e8dcc6;
     text-decoration: none;
     padding: 0.5rem 1.5rem;
     border: 1px solid transparent;
@@ -260,9 +255,9 @@ body {
 
 .site-nav a:hover,
 .site-nav a.active {
-    color: #8B6914;
+    color: #d4b85a;
     border-color: #8B6914;
-    background-color: rgba(139, 105, 20, 0.06);
+    background-color: rgba(139, 105, 20, 0.15);
 }
 
 /* Separator dots between nav links */
@@ -281,7 +276,7 @@ body {
     padding: 1.2rem 2rem;
     background: linear-gradient(to right,
         transparent,
-        rgba(139, 105, 20, 0.1),
+        rgba(139, 105, 20, 0.15),
         transparent);
     border-bottom: 1px solid rgba(139, 105, 20, 0.25);
 }
@@ -289,7 +284,7 @@ body {
 .currently-reading-label {
     font-family: 'IM Fell English SC', serif;
     font-size: 0.85rem;
-    color: #8B6914;
+    color: #d4b85a;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin-bottom: 0.2rem;
@@ -298,13 +293,13 @@ body {
 .currently-reading-title {
     font-family: 'Uncial Antiqua', serif;
     font-size: 1.3rem;
-    color: #4a2c0a;
+    color: #f0e6d0;
 }
 
 .currently-reading-chapter {
     font-family: 'IM Fell English SC', serif;
     font-size: 1rem;
-    color: #5c3a0a;
+    color: #e8dcc6;
     margin-top: 0.2rem;
     margin-bottom: 0;
 }
@@ -321,7 +316,7 @@ body {
 .blessing-text {
     font-family: 'Uncial Antiqua', serif;
     font-size: 2rem;
-    color: #4a2c0a;
+    color: #f0e6d0;
     margin: 1.5rem 0;
     letter-spacing: 0.03em;
 }
@@ -332,9 +327,9 @@ body {
 }
 
 .quill-inkwell-decoration img {
-    width: 120px;
+    width: 150px;
     height: auto;
-    opacity: 0.7;
+    opacity: 0.85;
 }
 
 /* ============================================================
@@ -348,7 +343,7 @@ body {
 .page-title {
     font-family: 'Uncial Antiqua', serif;
     font-size: 2rem;
-    color: #4a2c0a;
+    color: #f0e6d0;
     text-align: center;
     margin-bottom: 0.5rem;
 }
@@ -356,7 +351,7 @@ body {
 .page-subtitle {
     font-family: 'IM Fell English SC', serif;
     text-align: center;
-    color: #7a5c2e;
+    color: #c4a95a;
     font-size: 1rem;
     margin-bottom: 2rem;
 }
@@ -364,7 +359,7 @@ body {
 h2 {
     font-family: 'Uncial Antiqua', serif;
     font-size: 1.4rem;
-    color: #5c3a0a;
+    color: #d4b85a;
     margin: 2rem 0 0.8rem;
     padding-bottom: 0.4rem;
     border-bottom: 1px solid rgba(139, 105, 20, 0.3);
@@ -373,7 +368,7 @@ h2 {
 h3 {
     font-family: 'IM Fell English SC', serif;
     font-size: 1.15rem;
-    color: #6b4c1e;
+    color: #e8dcc6;
     margin: 1.5rem 0 0.6rem;
 }
 
@@ -394,15 +389,16 @@ p {
 }
 
 .card {
-    background: linear-gradient(135deg, #faf3e4, #f0e6cf);
-    border: 1px solid #d4c4a0;
+    background: rgba(139, 105, 20, 0.1);
+    border: 1px solid rgba(139, 105, 20, 0.3);
     padding: 1.5rem;
     position: relative;
     transition: box-shadow 0.3s ease;
 }
 
 .card:hover {
-    box-shadow: 0 3px 12px rgba(139, 105, 20, 0.15);
+    box-shadow: 0 3px 12px rgba(139, 105, 20, 0.25);
+    background: rgba(139, 105, 20, 0.15);
 }
 
 .card h3 {
@@ -419,7 +415,7 @@ p {
     display: inline-block;
     font-family: 'IM Fell English SC', serif;
     font-size: 0.75rem;
-    color: #8B6914;
+    color: #d4b85a;
     border: 1px solid #8B6914;
     padding: 0.15rem 0.5rem;
     margin-bottom: 0.8rem;
@@ -428,12 +424,12 @@ p {
 }
 
 .card a {
-    color: #6b3a0a;
+    color: #d4b85a;
     font-weight: 600;
 }
 
 .card a:hover {
-    color: #8B6914;
+    color: #f0e6d0;
 }
 
 /* ============================================================
@@ -441,7 +437,7 @@ p {
    ============================================================ */
 
 .quote-card {
-    background: linear-gradient(135deg, #faf3e4, #f0e6cf);
+    background: rgba(139, 105, 20, 0.08);
     border-left: 4px solid #8B6914;
     padding: 1.5rem 1.5rem 1.2rem;
     margin: 1.2rem 0;
@@ -452,7 +448,7 @@ p {
     content: "\201C"; /* opening curly quote */
     font-family: 'Uncial Antiqua', serif;
     font-size: 4rem;
-    color: rgba(139, 105, 20, 0.2);
+    color: rgba(139, 105, 20, 0.3);
     position: absolute;
     top: -0.2rem;
     left: 0.5rem;
@@ -462,14 +458,14 @@ p {
 .quote-card blockquote {
     font-style: italic;
     font-size: 1.05rem;
-    color: #3d2b1a;
+    color: #e8dcc6;
     padding-left: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
 .quote-card .attribution {
     text-align: right;
-    color: #7a5c2e;
+    color: #c4a95a;
     font-family: 'IM Fell English SC', serif;
     font-size: 0.9rem;
 }
@@ -486,8 +482,8 @@ p {
    ============================================================ */
 
 .question-entry {
-    background: linear-gradient(135deg, #faf3e4, #f0e6cf);
-    border: 1px solid #d4c4a0;
+    background: rgba(139, 105, 20, 0.08);
+    border: 1px solid rgba(139, 105, 20, 0.3);
     padding: 1.5rem;
     margin: 1.2rem 0;
 }
@@ -495,31 +491,31 @@ p {
 .question-entry .question-text {
     font-weight: 700;
     font-size: 1.05rem;
-    color: #4a2c0a;
+    color: #f0e6d0;
     margin-bottom: 0.8rem;
 }
 
 .question-entry .passage-ref {
     font-family: 'IM Fell English SC', serif;
     font-size: 0.85rem;
-    color: #8B6914;
+    color: #d4b85a;
     margin-bottom: 0.8rem;
 }
 
 .question-entry .catena-quote {
-    background-color: rgba(139, 105, 20, 0.06);
+    background-color: rgba(139, 105, 20, 0.1);
     border-left: 3px solid #c4a95a;
     padding: 1rem;
     font-style: italic;
     font-size: 0.95rem;
-    color: #3d2b1a;
+    color: #e8dcc6;
     margin: 0.8rem 0;
 }
 
 .question-entry .catena-quote .father-name {
     font-weight: 700;
     font-style: normal;
-    color: #5c3a0a;
+    color: #d4b85a;
 }
 
 /* ============================================================
@@ -527,8 +523,8 @@ p {
    ============================================================ */
 
 .blog-post {
-    background: #ffffff;
-    border: 1px solid #d4c4a0;
+    background: rgba(139, 105, 20, 0.08);
+    border: 1px solid rgba(139, 105, 20, 0.3);
     margin: 1.5rem 0;
     padding: 0;
 }
@@ -538,27 +534,27 @@ p {
     justify-content: space-between;
     align-items: center;
     padding: 0.8rem 1.5rem;
-    border-bottom: 1px solid rgba(139, 105, 20, 0.15);
-    background: rgba(139, 105, 20, 0.05);
+    border-bottom: 1px solid rgba(139, 105, 20, 0.2);
+    background: rgba(139, 105, 20, 0.1);
 }
 
 .blog-post-author {
     font-family: 'IM Fell English SC', serif;
     font-size: 0.95rem;
-    color: #5c3a0a;
+    color: #e8dcc6;
     font-weight: 700;
 }
 
 .blog-post-date {
     font-family: 'IM Fell English SC', serif;
     font-size: 0.85rem;
-    color: #8B6914;
+    color: #d4b85a;
 }
 
 .blog-post-title {
     font-family: 'Uncial Antiqua', serif;
     font-size: 1.2rem;
-    color: #4a2c0a;
+    color: #f0e6d0;
     padding: 1rem 1.5rem 0;
     margin: 0;
     border: none;
@@ -569,7 +565,7 @@ p {
 }
 
 .blog-post-body blockquote {
-    background-color: rgba(139, 105, 20, 0.06);
+    background-color: rgba(139, 105, 20, 0.1);
     border-left: 3px solid #c4a95a;
     padding: 1rem;
     margin: 0.8rem 0;
@@ -579,20 +575,20 @@ p {
 .blog-post-body img {
     max-width: 100%;
     margin: 0.8rem 0;
-    border: 1px solid #d4c4a0;
+    border: 1px solid rgba(139, 105, 20, 0.3);
 }
 
 /* Comments section within a blog post */
 .blog-post-comments {
-    border-top: 1px solid rgba(139, 105, 20, 0.15);
+    border-top: 1px solid rgba(139, 105, 20, 0.2);
     padding: 1rem 1.5rem;
-    background: rgba(139, 105, 20, 0.03);
+    background: rgba(139, 105, 20, 0.05);
 }
 
 .blog-post-comments h4 {
     font-family: 'IM Fell English SC', serif;
     font-size: 0.9rem;
-    color: #7a5c2e;
+    color: #c4a95a;
     margin-bottom: 0.8rem;
 }
 
@@ -608,7 +604,7 @@ p {
 .comment-author {
     font-family: 'IM Fell English SC', serif;
     font-size: 0.85rem;
-    color: #5c3a0a;
+    color: #e8dcc6;
     font-weight: 700;
     margin-right: 0.5rem;
 }
@@ -640,8 +636,8 @@ p {
     display: flex;
     gap: 1rem;
     align-items: flex-start;
-    background: linear-gradient(135deg, #faf3e4, #f0e6cf);
-    border: 1px solid #d4c4a0;
+    background: rgba(139, 105, 20, 0.08);
+    border: 1px solid rgba(139, 105, 20, 0.3);
     padding: 1rem 1.2rem;
     margin: 0.8rem 0;
 }
@@ -668,7 +664,7 @@ p {
 .member-card .member-info p {
     font-size: 0.9rem;
     margin-bottom: 0.2rem;
-    color: #5c4a2e;
+    color: #e8dcc6;
 }
 
 /* ============================================================
@@ -696,15 +692,15 @@ p {
    ============================================================ */
 
 a {
-    color: #6b3a0a;
+    color: #d4b85a;
     text-decoration: none;
-    border-bottom: 1px solid rgba(107, 58, 10, 0.3);
+    border-bottom: 1px solid rgba(212, 184, 90, 0.3);
     transition: all 0.2s ease;
 }
 
 a:hover {
-    color: #8B6914;
-    border-bottom-color: #8B6914;
+    color: #f0e6d0;
+    border-bottom-color: #f0e6d0;
 }
 
 ul, ol {
@@ -724,9 +720,9 @@ li {
     padding: 1.5rem 2rem;
     border-top: 2px solid #8B6914;
     background: linear-gradient(to top,
-        rgba(139, 105, 20, 0.08),
+        rgba(139, 105, 20, 0.15),
         transparent);
-    color: #7a5c2e;
+    color: #c4a95a;
     font-family: 'IM Fell English SC', serif;
     font-size: 0.9rem;
 }
@@ -741,7 +737,7 @@ li {
 .site-footer .footer-verse {
     font-style: italic;
     font-size: 0.95rem;
-    color: #5c3a0a;
+    color: #e8dcc6;
     max-width: 500px;
     margin: 0 auto 0.3rem;
     line-height: 1.6;
@@ -749,7 +745,7 @@ li {
 
 .site-footer .footer-cite {
     font-size: 0.85rem;
-    color: #8B6914;
+    color: #d4b85a;
     margin-bottom: 0;
 }
 
@@ -791,12 +787,12 @@ li {
 
 /* Notice/info boxes */
 .notice {
-    background-color: rgba(139, 105, 20, 0.07);
+    background-color: rgba(139, 105, 20, 0.1);
     border: 1px dashed #c4a95a;
     padding: 1rem 1.5rem;
     margin: 1.5rem 0;
     font-size: 0.95rem;
-    color: #5c3a0a;
+    color: #e8dcc6;
 }
 
 /* ============================================================

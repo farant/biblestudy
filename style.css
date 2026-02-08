@@ -398,7 +398,7 @@ body {
     float: left;
     line-height: 0.85;
     color: #8B6914;
-    margin-right: 0.15em;
+    margin-right: -0.05em;
     margin-top: 0.05em;
     text-shadow: 2px 2px 4px rgba(139, 105, 20, 0.3);
     /* In real illuminated manuscripts, the first letter was

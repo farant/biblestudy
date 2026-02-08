@@ -81,3 +81,10 @@ function verifyCsrf(): bool {
     $token = $_POST['csrf_token'] ?? '';
     return hash_equals($_SESSION['csrf_token'] ?? '', $token);
 }
+
+/**
+ * Check if the honeypot field was filled (indicates a bot).
+ */
+function isSpam(): bool {
+    return !empty($_POST['website']);
+}

@@ -64,6 +64,7 @@
 
         <form action="/comment/save" method="POST" class="comment-form">
             <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
+            <div class="hp-field" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
             <div class="form-row">
                 <input type="text" name="author_name" placeholder="Your name (optional)" class="comment-name-input">
                 <input type="text" name="body" placeholder="Write a comment..." required class="comment-body-input">

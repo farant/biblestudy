@@ -62,6 +62,7 @@ try {
                         <label for="sa-image">Attach an Image (optional)</label>
                         <input type="file" id="sa-image" name="image" accept="image/*">
                     </div>
+                    <div class="hp-field" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
                     <button type="submit" class="btn">Post Study Aid</button>
                 </form>
             </details>

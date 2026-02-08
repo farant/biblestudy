@@ -166,6 +166,11 @@ function handlePostSave(): void {
         return;
     }
 
+    if (isSpam()) {
+        header('Location: /community');
+        return;
+    }
+
     $db = getDb();
 
     $section = $_POST['section'] ?? 'community';
@@ -246,6 +251,11 @@ function handlePostDelete(): void {
 function handleCommentSave(): void {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         header('Location: /');
+        return;
+    }
+
+    if (isSpam()) {
+        header('Location: /community');
         return;
     }
 

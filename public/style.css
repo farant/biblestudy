@@ -1111,3 +1111,11 @@ li {
         width: 100% !important;
     }
 }
+
+/* Honeypot anti-spam */
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    height: 0;
+    overflow: hidden;
+}

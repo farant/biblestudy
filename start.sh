@@ -4,6 +4,7 @@ set -e
 echo "=== Checking volume mount ==="
 if [ -d /railway-volume ]; then
     mkdir -p /railway-volume/uploads
+    chown -R www-data:www-data /railway-volume/uploads
     if [ -f /railway-volume/.marker ]; then
         echo "Volume is persistent (marker file found from previous deploy)"
     else

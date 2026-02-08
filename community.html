@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--
-        COMMUNITY PAGE — Blog-Style Posts
-        This is a shared space where anyone in the group can post.
-        Share thoughts, reflections, quotes, images, articles, or anything
-        related to our study.
-
-        HOW TO ADD A NEW POST:
-        1. Copy one of the <article class="blog-post"> blocks below
-        2. Change the author, date, title, and content
-        3. Add your post at the TOP (newest first)
-        4. Commit the changes
-
-        Posts can include text, images, links, or quotes.
-    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community &mdash; St. Joseph's Catena Aurea Reading Group</title>
@@ -56,111 +42,59 @@
 
         <div class="quill-decoration">&#9998;</div>
 
-        <div class="notice">
-            <strong>Want to post something?</strong> Send your text, images, or links
-            to Amanda or Fran and they'll add it here. Or if you have access to the
-            GitHub repository, you can add a post yourself by copying one of the
-            post blocks below and filling in your content.
-        </div>
+        <p class="text-center">
+            Share a reflection, a quote, a question, a picture, or anything
+            related to our study. Everyone is welcome to post!
+        </p>
 
-        <!-- ============================================
-             COMMUNITY POSTS
-             Add new posts at the TOP so newest is first.
-             Copy an <article class="blog-post"> block to
-             create a new post.
-             ============================================ -->
+        <p class="text-center" style="margin-bottom: 2rem;">
+            <strong>Contact us:</strong><br>
+            Amanda &mdash; <a href="mailto:amandaalice.arant@gmail.com">amandaalice.arant@gmail.com</a><br>
+            Fran &mdash; <a href="mailto:francis.arant@gmail.com">francis.arant@gmail.com</a>
+        </p>
 
-        <!-- EXAMPLE POST — with an image -->
-        <article class="blog-post">
-            <div class="blog-post-header">
-                <span class="blog-post-author">Amanda</span>
-                <span class="blog-post-date">February 8, 2026</span>
-            </div>
-            <h3 class="blog-post-title">Welcome to Our Community Page!</h3>
-            <div class="blog-post-body">
-                <p>
-                    This is our shared space! Anyone in the group can post here.
-                    Share a reflection from your reading, a quote that struck you,
-                    a relevant article you found, a picture, or just something
-                    you want the group to see.
-                </p>
-                <p>
-                    To add a post, just send it to me or Fran and we'll put it up.
-                    Looking forward to hearing from everyone!
-                </p>
-            </div>
-            <div class="blog-post-comments">
-                <h4>Comments</h4>
-                <!-- Add comments by copying the comment block below -->
-                <div class="blog-comment">
-                    <span class="comment-author">Fran</span>
-                    <span class="comment-date">Feb 8</span>
-                    <p>Excited to get this started! I'll be posting study materials here too.</p>
-                </div>
-                <!-- To add a comment, copy this block:
-                <div class="blog-comment">
-                    <span class="comment-author">Name</span>
-                    <span class="comment-date">Date</span>
-                    <p>Your comment here.</p>
-                </div>
-                -->
-            </div>
-        </article>
+        <div class="ornament">&#10022; &#9670; &#10022;</div>
 
-        <!-- EXAMPLE POST — sharing a quote -->
-        <article class="blog-post">
-            <div class="blog-post-header">
-                <span class="blog-post-author">Fran</span>
-                <span class="blog-post-date">February 8, 2026</span>
-            </div>
-            <h3 class="blog-post-title">A Beautiful Passage from St. John Chrysostom</h3>
-            <div class="blog-post-body">
-                <p>Found this while reading through the commentary on Matthew 5. Had to share it:</p>
-                <blockquote>
-                    "The waters of baptism avail not for salvation, without the confession
-                    of faith; and this is a great proof of the divinity of the Spirit,
-                    since the faith in the Trinity is that which saves."
-                    <br><em>&mdash; St. John Chrysostom</em>
-                </blockquote>
-            </div>
-            <div class="blog-post-comments">
-                <h4>Comments</h4>
-                <p class="no-comments"><em>No comments yet. Be the first!</em></p>
-            </div>
-        </article>
+        <!-- DISQUS COMMENTING SYSTEM
+             This embeds a free commenting system where anyone can post
+             without needing an account. They can post as a guest.
 
-        <!-- EXAMPLE POST — sharing a link -->
-        <article class="blog-post">
-            <div class="blog-post-header">
-                <span class="blog-post-author">Amanda</span>
-                <span class="blog-post-date">February 8, 2026</span>
-            </div>
-            <h3 class="blog-post-title">Helpful Article: What is the Catena Aurea?</h3>
-            <div class="blog-post-body">
-                <p>
-                    For anyone new to the group or wanting some background, this is
-                    a great introduction to what the Catena Aurea is and why St. Thomas
-                    Aquinas compiled it:
-                </p>
-                <p>
-                    <a href="https://www.newadvent.org/cathen/03437a.htm">Catena Aurea &mdash; Catholic Encyclopedia at New Advent &rarr;</a>
-                </p>
-                <p>
-                    Also, here's where you can read the full text online for free:
-                    <a href="https://www.ecatholic2000.com/catena/untitled-111.shtml">Catena Aurea at eCatholic2000 &rarr;</a>
-                </p>
-            </div>
-            <div class="blog-post-comments">
-                <h4>Comments</h4>
-                <p class="no-comments"><em>No comments yet. Be the first!</em></p>
-            </div>
-        </article>
+             TO ACTIVATE THIS:
+             1. Go to https://disqus.com/ and click "Get Started"
+             2. Click "I want to install Disqus on my site"
+             3. Enter a site name (e.g., "stjosephs-catena-aurea")
+             4. Choose the free "Basic" plan
+             5. Select "Universal Code" as your platform
+             6. Replace "stjosephs-catena-aurea" below with your Disqus shortname
+             7. In Disqus settings, enable "Allow guests to comment"
+        -->
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = 'https://farant.github.io/biblestudy/community.html';
+                this.page.identifier = 'community';
+            };
+            (function() {
+                var d = document, s = d.createElement('script');
+                // REPLACE 'stjosephs-catena-aurea' with your actual Disqus shortname
+                s.src = 'https://stjosephs-catena-aurea.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>
+            <p>To view the community discussion, please enable JavaScript in your browser.</p>
+        </noscript>
 
     </div><!-- end page-content -->
 
     <footer class="site-footer">
         <div class="footer-ornament">&#10022; &#9670; &#10022;</div>
-        <p>&copy; 2026 St. Joseph's Church Catena Aurea Reading Group</p>
+        <p class="footer-verse">
+            "Wherefore I wished, and understanding was given me: and I called
+            upon God, and the spirit of wisdom came upon me."
+        </p>
+        <p class="footer-cite">&mdash; Wisdom 7:7 (Douay-Rheims)</p>
     </footer>
 
 </div>

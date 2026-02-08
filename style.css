@@ -156,9 +156,9 @@ body {
 .header-icon-right {
     position: absolute;
     top: 1.2rem;
-    width: 35px;
-    height: 50px;
-    opacity: 0.7;
+    width: 22px;
+    height: 32px;
+    opacity: 0.6;
 }
 
 .header-icon-left {
@@ -299,6 +299,14 @@ body {
     font-family: 'Uncial Antiqua', serif;
     font-size: 1.3rem;
     color: #4a2c0a;
+}
+
+.currently-reading-chapter {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1rem;
+    color: #5c3a0a;
+    margin-top: 0.2rem;
+    margin-bottom: 0;
 }
 
 /* ============================================================
@@ -617,7 +625,7 @@ p {
    ============================================================ */
 
 .blog-post {
-    background: linear-gradient(135deg, #faf3e4, #f0e6cf);
+    background: #ffffff;
     border: 1px solid #d4c4a0;
     margin: 1.5rem 0;
     padding: 0;
@@ -828,6 +836,21 @@ li {
     margin-bottom: 0.5rem;
 }
 
+.site-footer .footer-verse {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #5c3a0a;
+    max-width: 500px;
+    margin: 0 auto 0.3rem;
+    line-height: 1.6;
+}
+
+.site-footer .footer-cite {
+    font-size: 0.85rem;
+    color: #8B6914;
+    margin-bottom: 0;
+}
+
 /* ============================================================
    HELPER / UTILITY CLASSES
    ============================================================ */
@@ -974,8 +997,8 @@ li {
 
     .header-icon-left,
     .header-icon-right {
-        width: 25px;
-        height: 38px;
+        width: 18px;
+        height: 26px;
         top: 0.8rem;
     }
 

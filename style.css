@@ -326,6 +326,17 @@ body {
     letter-spacing: 0.03em;
 }
 
+.quill-inkwell-decoration {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.quill-inkwell-decoration img {
+    width: 120px;
+    height: auto;
+    opacity: 0.7;
+}
+
 /* ============================================================
    PAGE CONTENT — used on all inner pages
    ============================================================ */

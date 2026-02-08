@@ -177,11 +177,11 @@ body {
 
 /* Thomas Aquinas portrait */
 .header-portrait {
-    width: 90px;
-    height: 120px;
+    width: 160px;
+    height: 210px;
     margin: 0 auto 0.8rem;
-    border: 2px solid #8B6914;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid #8B6914;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     background-color: #e8dcc6;
 }
@@ -250,10 +250,10 @@ body {
 
 .site-nav a {
     font-family: 'IM Fell English SC', serif;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     color: #5c3a0a;
     text-decoration: none;
-    padding: 0.35rem 1rem;
+    padding: 0.5rem 1.5rem;
     border: 1px solid transparent;
     transition: all 0.3s ease;
 }
@@ -844,8 +844,8 @@ li {
 
     /* Portrait and icons scale on phone */
     .header-portrait {
-        width: 70px;
-        height: 95px;
+        width: 120px;
+        height: 158px;
     }
 
     .header-icon-left,

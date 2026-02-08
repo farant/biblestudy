@@ -220,6 +220,35 @@ body {
 }
 
 /* ============================================================
+   CURRENTLY READING — banner at top of homepage
+   ============================================================ */
+
+.currently-reading {
+    text-align: center;
+    padding: 1.2rem 2rem;
+    background: linear-gradient(to right,
+        transparent,
+        rgba(139, 105, 20, 0.1),
+        transparent);
+    border-bottom: 1px solid rgba(139, 105, 20, 0.25);
+}
+
+.currently-reading-label {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.85rem;
+    color: #8B6914;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.2rem;
+}
+
+.currently-reading-title {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1.3rem;
+    color: #4a2c0a;
+}
+
+/* ============================================================
    HOMEPAGE — THE OPEN BOOK
    ============================================================ */
 

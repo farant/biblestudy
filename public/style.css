@@ -573,6 +573,7 @@ p {
 }
 
 .blog-post-body img {
+    display: block;
     max-width: 400px;
     max-height: 400px;
     object-fit: contain;

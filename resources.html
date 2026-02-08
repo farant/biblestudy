@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--
-        RESOURCES PAGE
-        This is where Fran can post study materials: PDFs, images,
-        charts, timelines, and educational supplements.
-
-        HOW TO ADD A NEW RESOURCE:
-        1. Upload the file to the "resources/" folder in the repository
-           (or the "images/" folder for pictures)
-        2. Copy one of the <div class="card"> blocks below
-        3. Change the title, description, and link
-        4. Commit the changes
-
-        The link should point to the file like: resources/my-document.pdf
-    -->
+    <!-- RESOURCES PAGE -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources &mdash; St. Joseph's Catena Aurea Reading Group</title>
@@ -53,6 +40,40 @@
 
         <div class="quill-decoration">&#9998;</div>
 
+        <p class="text-center">
+            <strong>We meet at:</strong> 4284 U.S. Route 5 S, McIndoe Falls, VT 05050<br>
+            Amanda &mdash; <a href="mailto:amandaalice.arant@gmail.com">amandaalice.arant@gmail.com</a>
+            &middot; Fran &mdash; <a href="mailto:francis.arant@gmail.com">francis.arant@gmail.com</a>
+        </p>
+
+        <div class="ornament">&#10022; &#9670; &#10022;</div>
+
+        <!-- ============================================
+             STUDY AIDS — blog-style posts with images/text
+             To add a new study aid, copy an <article> block
+             and fill in your content.
+             ============================================ -->
+        <h2>Study Aids</h2>
+
+        <div id="disqus_thread_resources"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = 'https://farant.github.io/biblestudy/resources.html';
+                this.page.identifier = 'resources';
+            };
+            (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://stjosephs-catena-aurea.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>
+            <p>To view study aids, please enable JavaScript in your browser.</p>
+        </noscript>
+
+        <div class="ornament">&#10022; &#9670; &#10022;</div>
+
         <h2>Commentaries Online</h2>
         <div class="card-grid">
             <div class="card">
@@ -68,43 +89,6 @@
                 <p><a href="https://www.ecatholic2000.com/lapide/untitled-170.shtml">Read Online &rarr;</a></p>
             </div>
         </div>
-
-        <h2>Catena Aurea by Gospel</h2>
-        <div class="card-grid">
-            <div class="card">
-                <h3>Gospel of St. Matthew</h3>
-                <p><a href="https://www.ecatholic2000.com/catena/untitled-111.shtml">Read Online &rarr;</a></p>
-            </div>
-            <div class="card">
-                <h3>Gospel of St. Mark</h3>
-                <p><a href="https://www.ecatholic2000.com/catena/untitled-encyclopedic.shtml">Read Online &rarr;</a></p>
-            </div>
-            <div class="card">
-                <h3>Gospel of St. Luke</h3>
-                <p><a href="https://www.ecatholic2000.com/catena/untitled-243.shtml">Read Online &rarr;</a></p>
-            </div>
-            <div class="card">
-                <h3>Gospel of St. John</h3>
-                <p><a href="https://www.ecatholic2000.com/catena/untitled-345.shtml">Read Online &rarr;</a></p>
-            </div>
-        </div>
-
-        <div class="ornament">&#10022; &#9670; &#10022;</div>
-
-        <!-- ============================================
-             CONTACT & ADDRESS
-             ============================================ -->
-        <h2>Contact & Location</h2>
-        <p>
-            <strong>St. Joseph's Church</strong><br>
-            4284 U.S. Route 5 S<br>
-            McIndoe Falls, VT 05050
-        </p>
-        <p>
-            <strong>Contact us:</strong><br>
-            Amanda &mdash; <a href="mailto:amandaalice.arant@gmail.com">amandaalice.arant@gmail.com</a><br>
-            Fran &mdash; <a href="mailto:francis.arant@gmail.com">francis.arant@gmail.com</a>
-        </p>
 
     </div><!-- end page-content -->
 

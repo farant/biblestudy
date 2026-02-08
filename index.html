@@ -2,78 +2,115 @@
 <html lang="en">
 <head>
     <!--
-        WHAT IS THIS FILE?
-        This is your homepage! It's written in HTML (HyperText Markup Language).
-        HTML uses "tags" like <h1> and <p> to structure content.
-        Tags come in pairs: <p> starts a paragraph, </p> ends it.
+        THIS IS YOUR HOMEPAGE, AMANDA!
+        It features an "open book" layout with two pages side by side.
+        The left page has the title and welcome message.
+        The right page has a featured verse and quick links.
 
-        To change your site, just edit the text between the tags below!
+        To change any text, just edit the words between the tags below.
     -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bible Study</title>
-    <!-- This line links your stylesheet (style.css) which controls colors, fonts, etc. -->
+    <title>St. Joseph's Catena Aurea Reading Group</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- HEADER: The top banner of your site -->
-    <header>
-        <h1>Bible Study</h1>
-        <p class="subtitle">Welcome to our Bible study group</p>
+<!-- The whole site sits inside this "page-frame" which creates the
+     illuminated manuscript border effect on the dark background -->
+<div class="page-frame">
+<div class="page-inner">
+
+    <!-- ======== HEADER ======== -->
+    <header class="site-header">
+        <span class="cross-icon">&#10013;</span>
+        <h1>St. Joseph's Church<br>Catena Aurea Reading Group</h1>
+        <p class="subtitle">A Golden Chain of the Church Fathers</p>
+        <div class="ornament">&#10022; &#9670; &#10022;</div>
     </header>
 
-    <!-- MAIN CONTENT: This is where your page content goes -->
-    <main>
+    <!-- ======== NAVIGATION ========
+         These links appear on EVERY page. If you add a new page,
+         add a matching link here (and on every other page too).
+         The "active" class highlights which page you're currently on. -->
+    <nav class="site-nav">
+        <a href="index.html" class="active">Home</a>
+        <span class="sep">&#9830;</span>
+        <a href="resources.html">Resources</a>
+        <span class="sep">&#9830;</span>
+        <a href="quotes.html">Quotes</a>
+        <span class="sep">&#9830;</span>
+        <a href="questions.html">Questions</a>
+        <span class="sep">&#9830;</span>
+        <a href="community.html">Community</a>
+    </nav>
 
-        <!-- Each <section> is a block of content on the page -->
-        <section class="welcome">
-            <h2>Welcome</h2>
-            <p>
-                Welcome to our Bible study page! This is a place to share notes,
-                reflections, and resources as we study God's Word together.
-            </p>
-        </section>
+    <!-- ======== THE OPEN BOOK ========
+         This creates a two-page "open book" layout.
+         Left page = title & welcome, Right page = verse & links.
 
-        <section class="verse-of-the-day">
-            <h2>Verse of the Day</h2>
-            <!-- Change this verse to whatever you'd like to feature! -->
-            <blockquote>
-                "For where two or three gather in my name, there am I with them."
-                <cite>&mdash; Matthew 18:20 (NIV)</cite>
-            </blockquote>
-        </section>
+         TO ADD A BACKGROUND IMAGE (like a book on a medieval desk):
+         1. Save your image in an "images" folder
+         2. In style.css, find the ".hero-book" section
+         3. Uncomment the background-image line and point it to your file
+    -->
+    <section class="hero-book">
+        <div class="book-container">
 
-        <section class="about">
-            <h2>About Our Study</h2>
-            <p>
-                Edit this section to tell visitors about your Bible study group.
-                You could include:
-            </p>
-            <!-- This is an unordered list (bullet points) -->
-            <ul>
-                <li>When and where you meet</li>
-                <li>What book or topic you're currently studying</li>
-                <li>How newcomers can join</li>
-            </ul>
-        </section>
+            <!-- LEFT PAGE -->
+            <div class="book-page-left">
+                <div class="book-title">
+                    <span class="illuminated-letter">C</span>atena Aurea
+                </div>
+                <div class="book-text">
+                    <p>
+                        Welcome to the reading group of St. Joseph's Church.
+                        Together we study the <em>Catena Aurea</em>&mdash;the
+                        "Golden Chain"&mdash;St. Thomas Aquinas's magnificent
+                        compilation of Church Father commentaries on the four Gospels.
+                    </p>
+                    <p>
+                        Through the wisdom of the Fathers, we seek to deepen our
+                        understanding of Sacred Scripture and draw closer to Christ.
+                    </p>
+                </div>
+            </div>
 
-        <section class="resources">
-            <h2>Resources</h2>
-            <p>Here are some helpful links:</p>
-            <!-- These are links. Change the href="..." to point to different URLs -->
-            <ul>
-                <li><a href="https://www.biblegateway.com">Bible Gateway</a> &mdash; Search and read the Bible online</li>
-                <li><a href="https://www.blueletterbible.org">Blue Letter Bible</a> &mdash; Study tools and commentaries</li>
-            </ul>
-        </section>
+            <!-- RIGHT PAGE -->
+            <div class="book-page-right">
+                <div class="book-verse">
+                    "And beginning at Moses and all the prophets,
+                    he expounded unto them in all the scriptures
+                    the things concerning himself."
+                    <cite>&mdash; Luke 24:27</cite>
+                </div>
 
-    </main>
+                <div class="book-text" style="margin-top: 2rem; text-align: center;">
+                    <p><strong>Currently Reading:</strong><br>
+                    The Gospel According to St. Matthew</p>
 
-    <!-- FOOTER: The bottom of your site -->
-    <footer>
-        <p>&copy; 2026 Bible Study Group</p>
+                    <div class="quill-decoration">&#9998; &#128218;</div>
+
+                    <p style="font-size: 0.95rem;">
+                        <a href="resources.html">Study Materials</a> &middot;
+                        <a href="questions.html">Ask a Question</a> &middot;
+                        <a href="community.html">Announcements</a>
+                    </p>
+                </div>
+            </div>
+
+        </div><!-- end book-container -->
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="site-footer">
+        <div class="footer-ornament">&#10022; &#9670; &#10022;</div>
+        <p>&copy; 2026 St. Joseph's Church Catena Aurea Reading Group</p>
+        <p>Ad Maiorem Dei Gloriam</p>
     </footer>
+
+</div><!-- end page-inner -->
+</div><!-- end page-frame -->
 
 </body>
 </html>

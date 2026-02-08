@@ -1,143 +1,796 @@
 /*
-    WHAT IS THIS FILE?
-    This is your stylesheet (CSS = Cascading Style Sheets).
-    It controls how your site LOOKS — colors, fonts, spacing, etc.
-    The HTML file controls what CONTENT appears; this file controls
-    how that content is styled.
+ * ==========================================================
+ *  ST. JOSEPH'S CATENA AUREA READING GROUP
+ *  Medieval Illuminated Manuscript Theme
+ * ==========================================================
+ *
+ *  HOW THIS STYLESHEET WORKS, AMANDA:
+ *
+ *  This file controls ALL the visual styling for every page.
+ *  It's organized in sections:
+ *    1. Fonts & base styles
+ *    2. The illuminated border / page frame
+ *    3. Navigation
+ *    4. The homepage open-book design
+ *    5. Page content styles
+ *    6. Cards, quotes, and special sections
+ *    7. Footer
+ *    8. Mobile styles
+ *
+ *  To change colors, look for "color:" or "background" lines.
+ *  The main gold color is #8B6914. The parchment color is #f5ecd7.
+ * ==========================================================
+ */
 
-    CSS works by selecting HTML elements and applying styles to them.
-    For example:
-        body { background-color: white; }
-    This says "make the background of the <body> element white."
-
-    Feel free to change any of the colors or sizes below!
+/* ---- GOOGLE FONTS ----
+   We import two fonts:
+   - "Uncial Antiqua" for headings (looks like medieval script)
+   - "Crimson Text" for body text (elegant serif, easy to read)
+   These load from Google's free font service.
 */
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IM+Fell+English+SC&display=swap');
 
-/* ---- GENERAL PAGE STYLES ---- */
+/* ---- BASE STYLES ---- */
 
-/* The * selector applies to everything — this resets default spacing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Georgia, "Times New Roman", serif;
-    line-height: 1.7;
-    color: #333;
-    background-color: #faf8f5;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #2c1810;
+    background-color: #1a0f0a;
+    /* Dark wood-like background behind the "page" */
+    background-image:
+        radial-gradient(ellipse at center, #2a1a10 0%, #0d0805 100%);
+    min-height: 100vh;
 }
 
-/* ---- HEADER (top banner) ---- */
+/* ============================================================
+   THE ILLUMINATED PAGE FRAME
+   This creates the parchment "page" with ornate borders,
+   sitting on the dark background like a manuscript on a desk.
+   ============================================================ */
 
-header {
-    background-color: #4a5568;
-    color: white;
+.page-frame {
+    max-width: 1100px;
+    margin: 2rem auto;
+    background-color: #f5ecd7;
+    /* Parchment texture effect using CSS gradients */
+    background-image:
+        linear-gradient(rgba(139, 105, 20, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 105, 20, 0.03) 1px, transparent 1px),
+        radial-gradient(ellipse at 20% 50%, rgba(210, 180, 120, 0.15), transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(180, 150, 100, 0.1), transparent 50%);
+    background-size: 20px 20px, 20px 20px, 100% 100%, 100% 100%;
+    position: relative;
+    box-shadow:
+        0 0 0 3px #8B6914,
+        0 0 0 6px #f5ecd7,
+        0 0 0 8px #8B6914,
+        0 0 0 14px #5c4a1e,
+        0 0 40px rgba(0, 0, 0, 0.5);
+    /* The multi-layer box-shadow creates the ornate gold border effect */
+}
+
+/* Decorative corner flourishes using CSS pseudo-elements */
+.page-frame::before,
+.page-frame::after {
+    content: "❧";
+    position: absolute;
+    font-size: 2rem;
+    color: #8B6914;
+    z-index: 2;
+}
+
+.page-frame::before {
+    top: 18px;
+    left: 24px;
+}
+
+.page-frame::after {
+    bottom: 18px;
+    right: 24px;
+    transform: rotate(180deg);
+}
+
+/* Inner border decoration */
+.page-inner {
+    border: 1px solid rgba(139, 105, 20, 0.3);
+    margin: 12px;
+    padding: 0;
+    position: relative;
+}
+
+.page-inner::before,
+.page-inner::after {
+    content: "❧";
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(139, 105, 20, 0.5);
+    z-index: 2;
+}
+
+.page-inner::before {
+    top: 6px;
+    right: 12px;
+}
+
+.page-inner::after {
+    bottom: 6px;
+    left: 12px;
+    transform: rotate(180deg);
+}
+
+/* ============================================================
+   TOP HEADER BANNER
+   ============================================================ */
+
+.site-header {
     text-align: center;
-    padding: 2.5rem 1rem;
+    padding: 2rem 2rem 1rem;
+    border-bottom: 2px solid #8B6914;
+    position: relative;
+    background: linear-gradient(to bottom,
+        rgba(139, 105, 20, 0.08),
+        transparent);
 }
 
-header h1 {
-    font-size: 2.2rem;
+/* Decorative cross above the title */
+.site-header .cross-icon {
+    font-size: 2rem;
+    color: #8B6914;
+    display: block;
     margin-bottom: 0.3rem;
 }
 
-.subtitle {
+.site-header h1 {
+    font-family: 'Uncial Antiqua', 'IM Fell English SC', serif;
+    font-size: 2rem;
+    color: #4a2c0a;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+    text-shadow: 1px 1px 2px rgba(139, 105, 20, 0.2);
+}
+
+.site-header .subtitle {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1.05rem;
+    color: #7a5c2e;
+    margin-top: 0.3rem;
     font-style: italic;
-    font-size: 1.1rem;
-    opacity: 0.9;
 }
 
-/* ---- MAIN CONTENT ---- */
-
-main {
-    max-width: 750px;
-    margin: 0 auto;         /* "auto" left/right margins = centered on the page */
-    padding: 2rem 1.5rem;
+/* Decorative divider line with diamond */
+.ornament {
+    text-align: center;
+    color: #8B6914;
+    font-size: 1.2rem;
+    margin: 0.8rem 0;
+    letter-spacing: 0.5rem;
 }
 
-/* Each <section> gets some spacing */
-section {
-    margin-bottom: 2.5rem;
+/* ============================================================
+   NAVIGATION
+   The menu that appears on every page.
+   ============================================================ */
+
+.site-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(to bottom,
+        rgba(139, 105, 20, 0.06),
+        transparent);
+    border-bottom: 1px solid rgba(139, 105, 20, 0.25);
+}
+
+.site-nav a {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.95rem;
+    color: #5c3a0a;
+    text-decoration: none;
+    padding: 0.35rem 1rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+    color: #8B6914;
+    border-color: #8B6914;
+    background-color: rgba(139, 105, 20, 0.06);
+}
+
+/* Separator dots between nav links */
+.site-nav .sep {
+    color: #c4a95a;
+    align-self: center;
+    font-size: 0.5rem;
+}
+
+/* ============================================================
+   HOMEPAGE — THE OPEN BOOK
+   ============================================================ */
+
+.hero-book {
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+/* If you add a background image of an open book on a desk,
+   uncomment and edit this section:
+
+.hero-book {
+    background-image: url('images/book-on-desk.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+}
+*/
+
+.book-container {
+    display: flex;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.3),
+        0 0 60px rgba(139, 105, 20, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Left page of the open book */
+.book-page-left,
+.book-page-right {
+    flex: 1;
+    padding: 2.5rem 2rem;
+    background-color: #f9f2e3;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.book-page-left {
+    background: linear-gradient(to right, #ede3cc, #f5ecd7);
+    border-right: 2px solid #d4c4a0;
+    box-shadow: inset -8px 0 15px -8px rgba(0, 0, 0, 0.15);
+}
+
+.book-page-right {
+    background: linear-gradient(to left, #ede3cc, #f5ecd7);
+    border-left: none;
+    box-shadow: inset 8px 0 15px -8px rgba(0, 0, 0, 0.15);
+}
+
+/* The "spine" shadow between pages */
+.book-page-left::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    background: linear-gradient(to left,
+        rgba(0, 0, 0, 0.08),
+        transparent);
+}
+
+.book-page-right::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    background: linear-gradient(to right,
+        rgba(0, 0, 0, 0.08),
+        transparent);
+}
+
+/* Illuminated capital letter - the big decorative first letter */
+.illuminated-letter {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 5rem;
+    float: left;
+    line-height: 0.85;
+    color: #8B6914;
+    margin-right: 0.15em;
+    margin-top: 0.05em;
+    text-shadow: 2px 2px 4px rgba(139, 105, 20, 0.3);
+    /* In real illuminated manuscripts, the first letter was
+       painted in gold with intricate decorations around it */
+}
+
+.book-title {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1.6rem;
+    color: #4a2c0a;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.book-text {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #3d2b1a;
+    text-align: left;
+}
+
+.book-verse {
+    font-style: italic;
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #5c3a0a;
+    font-size: 1.05rem;
+}
+
+.book-verse cite {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+    color: #8B6914;
+}
+
+/* ============================================================
+   PAGE CONTENT — used on all inner pages
+   ============================================================ */
+
+.page-content {
+    padding: 2rem 3rem;
+}
+
+.page-title {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 2rem;
+    color: #4a2c0a;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    font-family: 'IM Fell English SC', serif;
+    text-align: center;
+    color: #7a5c2e;
+    font-size: 1rem;
+    margin-bottom: 2rem;
 }
 
 h2 {
-    font-size: 1.5rem;
-    color: #4a5568;
-    margin-bottom: 0.8rem;
-    border-bottom: 2px solid #e2d8ce;
-    padding-bottom: 0.3rem;
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1.4rem;
+    color: #5c3a0a;
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.3);
+}
+
+h3 {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1.15rem;
+    color: #6b4c1e;
+    margin: 1.5rem 0 0.6rem;
 }
 
 p {
     margin-bottom: 1rem;
 }
 
-/* ---- VERSE / BLOCKQUOTE ---- */
+/* ============================================================
+   CARDS — used for resources, bios, articles, etc.
+   Each card is a little box with a title and description.
+   ============================================================ */
 
-blockquote {
-    background-color: #f0ebe4;
-    border-left: 4px solid #8b7355;
-    padding: 1.2rem 1.5rem;
-    margin: 1rem 0;
-    font-style: italic;
-    font-size: 1.15rem;
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
 }
 
-blockquote cite {
-    display: block;
-    margin-top: 0.7rem;
+.card {
+    background: linear-gradient(135deg, #faf3e4, #f0e6cf);
+    border: 1px solid #d4c4a0;
+    padding: 1.5rem;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 3px 12px rgba(139, 105, 20, 0.15);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+.card p {
     font-size: 0.95rem;
-    color: #6b5b4a;
+    margin-bottom: 0.5rem;
 }
 
-/* ---- LISTS ---- */
+.card .card-type {
+    display: inline-block;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.75rem;
+    color: #8B6914;
+    border: 1px solid #8B6914;
+    padding: 0.15rem 0.5rem;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
 
-ul {
-    margin: 0.5rem 0 1rem 1.5rem;   /* left margin creates the indent */
+.card a {
+    color: #6b3a0a;
+    font-weight: 600;
+}
+
+.card a:hover {
+    color: #8B6914;
+}
+
+/* ============================================================
+   QUOTES — styled like manuscript excerpts
+   ============================================================ */
+
+.quote-card {
+    background: linear-gradient(135deg, #faf3e4, #f0e6cf);
+    border-left: 4px solid #8B6914;
+    padding: 1.5rem 1.5rem 1.2rem;
+    margin: 1.2rem 0;
+    position: relative;
+}
+
+.quote-card::before {
+    content: "\201C"; /* opening curly quote */
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 4rem;
+    color: rgba(139, 105, 20, 0.2);
+    position: absolute;
+    top: -0.2rem;
+    left: 0.5rem;
+    line-height: 1;
+}
+
+.quote-card blockquote {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #3d2b1a;
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.quote-card .attribution {
+    text-align: right;
+    color: #7a5c2e;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.9rem;
+}
+
+.quote-card .submitted-by {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 0.4rem;
+    text-align: right;
+}
+
+/* ============================================================
+   QUESTIONS SECTION
+   ============================================================ */
+
+.question-entry {
+    background: linear-gradient(135deg, #faf3e4, #f0e6cf);
+    border: 1px solid #d4c4a0;
+    padding: 1.5rem;
+    margin: 1.2rem 0;
+}
+
+.question-entry .question-text {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #4a2c0a;
+    margin-bottom: 0.8rem;
+}
+
+.question-entry .passage-ref {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.85rem;
+    color: #8B6914;
+    margin-bottom: 0.8rem;
+}
+
+.question-entry .catena-quote {
+    background-color: rgba(139, 105, 20, 0.06);
+    border-left: 3px solid #c4a95a;
+    padding: 1rem;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #3d2b1a;
+    margin: 0.8rem 0;
+}
+
+.question-entry .catena-quote .father-name {
+    font-weight: 700;
+    font-style: normal;
+    color: #5c3a0a;
+}
+
+/* ============================================================
+   ANNOUNCEMENTS
+   ============================================================ */
+
+.announcement {
+    border-bottom: 1px solid rgba(139, 105, 20, 0.2);
+    padding: 1.2rem 0;
+}
+
+.announcement:last-child {
+    border-bottom: none;
+}
+
+.announcement .date {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.85rem;
+    color: #8B6914;
+}
+
+.announcement h3 {
+    margin-top: 0.3rem;
+}
+
+/* ============================================================
+   MEMBER DIRECTORY (displayed carefully)
+   ============================================================ */
+
+.member-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #faf3e4, #f0e6cf);
+    border: 1px solid #d4c4a0;
+    padding: 1rem 1.2rem;
+    margin: 0.8rem 0;
+}
+
+.member-card .member-initial {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 2rem;
+    color: #8B6914;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #8B6914;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.member-card .member-info h3 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.member-card .member-info p {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    color: #5c4a2e;
+}
+
+/* ============================================================
+   BIO SECTIONS for Church Fathers
+   ============================================================ */
+
+.bio-entry {
+    margin: 1.5rem 0;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.2);
+}
+
+.bio-entry:last-child {
+    border-bottom: none;
+}
+
+.bio-entry .dates {
+    font-family: 'IM Fell English SC', serif;
+    color: #8B6914;
+    font-size: 0.9rem;
+}
+
+/* ============================================================
+   LINKS & LISTS
+   ============================================================ */
+
+a {
+    color: #6b3a0a;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(107, 58, 10, 0.3);
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #8B6914;
+    border-bottom-color: #8B6914;
+}
+
+ul, ol {
+    margin: 0.8rem 0 1.2rem 1.5rem;
 }
 
 li {
     margin-bottom: 0.4rem;
 }
 
-/* ---- LINKS ---- */
+/* ============================================================
+   FOOTER
+   ============================================================ */
 
-a {
-    color: #5a7a9b;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* ---- FOOTER ---- */
-
-footer {
+.site-footer {
     text-align: center;
-    padding: 1.5rem;
-    color: #888;
+    padding: 1.5rem 2rem;
+    border-top: 2px solid #8B6914;
+    background: linear-gradient(to top,
+        rgba(139, 105, 20, 0.08),
+        transparent);
+    color: #7a5c2e;
+    font-family: 'IM Fell English SC', serif;
     font-size: 0.9rem;
-    border-top: 1px solid #e2d8ce;
+}
+
+.site-footer .footer-ornament {
+    color: #8B6914;
+    font-size: 1rem;
+    letter-spacing: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================================
+   HELPER / UTILITY CLASSES
+   ============================================================ */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
     margin-top: 2rem;
 }
 
-/* ---- MOBILE FRIENDLY ----
-   This makes the site look good on phones.
-   @media means "only apply these styles when the screen is this size or smaller."
-*/
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 1.7rem;
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+/* Inkwell & feather quill decoration — used as accents */
+.quill-decoration {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #8B6914;
+    margin: 1.5rem 0;
+    opacity: 0.7;
+}
+
+/* Drop cap for first paragraph of a section */
+.drop-cap::first-letter {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 3.5rem;
+    float: left;
+    line-height: 0.8;
+    color: #8B6914;
+    margin-right: 0.1em;
+    margin-top: 0.1em;
+}
+
+/* Notice/info boxes */
+.notice {
+    background-color: rgba(139, 105, 20, 0.07);
+    border: 1px dashed #c4a95a;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    color: #5c3a0a;
+}
+
+/* ============================================================
+   MOBILE / RESPONSIVE STYLES
+   Makes the site look good on phones and tablets.
+   ============================================================ */
+
+@media (max-width: 900px) {
+    .page-frame {
+        margin: 0.5rem;
     }
 
-    main {
+    .page-content {
+        padding: 1.5rem 1.5rem;
+    }
+
+    /* Stack the book pages vertically on small screens */
+    .book-container {
+        flex-direction: column;
+    }
+
+    .book-page-left {
+        border-right: none;
+        border-bottom: 2px solid #d4c4a0;
+        box-shadow: inset 0 -8px 15px -8px rgba(0, 0, 0, 0.15);
+        min-height: auto;
+    }
+
+    .book-page-left::after {
+        display: none;
+    }
+
+    .book-page-right {
+        box-shadow: inset 0 8px 15px -8px rgba(0, 0, 0, 0.15);
+        min-height: auto;
+    }
+
+    .book-page-right::before {
+        display: none;
+    }
+
+    .site-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .site-nav .sep {
+        display: none;
+    }
+
+    .page-inner {
+        margin: 6px;
+    }
+
+    .page-content {
+        padding: 1.2rem 1rem;
+    }
+
+    .hero-book {
         padding: 1.5rem 1rem;
     }
 
-    blockquote {
-        padding: 1rem;
+    .book-page-left,
+    .book-page-right {
+        padding: 1.5rem 1.2rem;
+    }
+
+    .illuminated-letter {
+        font-size: 3.5rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .member-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 }

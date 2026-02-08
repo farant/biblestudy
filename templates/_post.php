@@ -19,7 +19,7 @@
     <div class="blog-post-body">
         <?= nl2br(e($post['body'])) ?>
         <?php if ($post['image_url']): ?>
-            <img src="<?= e($post['image_url']) ?>" alt="Post image">
+            <img src="<?= e($post['image_url']) ?>" alt="Post image" onclick="openLightbox(this.src)">
         <?php endif; ?>
     </div>
 

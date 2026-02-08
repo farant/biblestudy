@@ -573,9 +573,41 @@ p {
 }
 
 .blog-post-body img {
-    max-width: 100%;
+    max-width: 400px;
+    max-height: 400px;
+    object-fit: contain;
     margin: 0.8rem 0;
     border: 1px solid rgba(139, 105, 20, 0.3);
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.blog-post-body img:hover {
+    opacity: 0.85;
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+}
+
+.lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 2px solid rgba(196, 169, 90, 0.5);
+    border-radius: 4px;
 }
 
 /* Comments section within a blog post */

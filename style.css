@@ -310,7 +310,24 @@ body {
 }
 
 /* ============================================================
-   HOMEPAGE — THE OPEN BOOK
+   HOMEPAGE — BLESSING MESSAGE
+   ============================================================ */
+
+.home-blessing {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.blessing-text {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 2rem;
+    color: #4a2c0a;
+    margin: 1.5rem 0;
+    letter-spacing: 0.03em;
+}
+
+/* ============================================================
+   HOMEPAGE — THE OPEN BOOK (legacy)
    ============================================================ */
 
 .hero-book {

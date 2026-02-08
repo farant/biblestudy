@@ -11,9 +11,9 @@ COPY nginx.conf /etc/nginx/http.d/default.conf
 COPY . /var/www/html
 WORKDIR /var/www/html
 
-# Create uploads directory with proper permissions
-RUN mkdir -p /var/www/html/public/uploads \
-    && chown -R www-data:www-data /var/www/html/public/uploads
+# Create uploads directory on persistent volume with proper permissions
+RUN mkdir -p /railway-volume/uploads \
+    && chown -R www-data:www-data /railway-volume
 
 # Start script: run migrations, then start nginx + php-fpm
 COPY start.sh /start.sh

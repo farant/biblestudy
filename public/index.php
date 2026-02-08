@@ -328,7 +328,7 @@ function handleImageUpload(array $file): ?string {
         default => 'jpg',
     };
 
-    $uploadDir = __DIR__ . '/uploads';
+    $uploadDir = '/railway-volume/uploads';
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0755, true);
     }

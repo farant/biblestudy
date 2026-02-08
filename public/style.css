@@ -574,8 +574,8 @@ p {
 
 .blog-post-body img {
     display: block;
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 600px;
+    max-height: 600px;
     object-fit: contain;
     margin: 0.8rem 0;
     border: 1px solid rgba(139, 105, 20, 0.3);

@@ -1,0 +1,1031 @@
+/*
+ * ==========================================================
+ *  ST. JOSEPH'S CATENA AUREA READING GROUP
+ *  Medieval Illuminated Manuscript Theme
+ * ==========================================================
+ *
+ *  HOW THIS STYLESHEET WORKS, AMANDA:
+ *
+ *  This file controls ALL the visual styling for every page.
+ *  It's organized in sections:
+ *    1. Fonts & base styles
+ *    2. The illuminated border / page frame
+ *    3. Navigation
+ *    4. The homepage open-book design
+ *    5. Page content styles
+ *    6. Cards, quotes, and special sections
+ *    7. Footer
+ *    8. Mobile styles
+ *
+ *  To change colors, look for "color:" or "background" lines.
+ *  The main gold color is #8B6914. Text is cream #f0e6d0 on dark #1a0f0a background.
+ * ==========================================================
+ */
+
+/* ---- GOOGLE FONTS ----
+   We import two fonts:
+   - "Uncial Antiqua" for headings (looks like medieval script)
+   - "Crimson Text" for body text (elegant serif, easy to read)
+   These load from Google's free font service.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IM+Fell+English+SC&display=swap');
+
+/* ---- BASE STYLES ---- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #f0e6d0;
+    background-color: #1a0f0a;
+    background-image:
+        radial-gradient(ellipse at center, #2a1a10 0%, #0d0805 100%);
+    min-height: 100vh;
+}
+
+/* ============================================================
+   THE ILLUMINATED PAGE FRAME
+   This creates the parchment "page" with ornate borders,
+   sitting on the dark background like a manuscript on a desk.
+   ============================================================ */
+
+.page-frame {
+    max-width: 1100px;
+    margin: 2rem auto;
+    background-color: #1a0f0a;
+    /* Dark wood texture effect using CSS gradients */
+    background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(139, 105, 20, 0.08), transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(139, 105, 20, 0.05), transparent 50%);
+    position: relative;
+    box-shadow:
+        0 0 0 3px #8B6914,
+        0 0 0 6px #1a0f0a,
+        0 0 0 8px #8B6914,
+        0 0 0 14px #5c4a1e,
+        0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Decorative corner ornaments using SVG images */
+.page-frame::before,
+.page-frame::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-image: url('images/border-corner.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+.page-frame::before {
+    top: 4px;
+    left: 4px;
+}
+
+.page-frame::after {
+    bottom: 4px;
+    right: 4px;
+    transform: rotate(180deg);
+}
+
+/* Inner border decoration */
+.page-inner {
+    border: 1px solid rgba(139, 105, 20, 0.4);
+    margin: 12px;
+    padding: 0;
+    position: relative;
+}
+
+.page-inner::before,
+.page-inner::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-image: url('images/border-corner.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+.page-inner::before {
+    top: 0;
+    right: 0;
+    transform: scaleX(-1);
+}
+
+.page-inner::after {
+    bottom: 0;
+    left: 0;
+    transform: scaleY(-1);
+}
+
+/* ============================================================
+   TOP HEADER BANNER
+   ============================================================ */
+
+.site-header {
+    text-align: center;
+    padding: 2rem 2rem 1rem;
+    border-bottom: 2px solid #8B6914;
+    position: relative;
+    background: linear-gradient(to bottom,
+        rgba(139, 105, 20, 0.15),
+        transparent);
+}
+
+/* Quill and inkwell icons flanking the header */
+.header-icon-left,
+.header-icon-right {
+    position: absolute;
+    top: 1.2rem;
+    width: 22px;
+    height: 32px;
+    opacity: 0.6;
+}
+
+.header-icon-left {
+    left: 1.5rem;
+}
+
+.header-icon-right {
+    right: 1.5rem;
+}
+
+.header-icon-left img,
+.header-icon-right img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Thomas Aquinas portrait */
+.header-portrait {
+    width: 160px;
+    height: 210px;
+    margin: 0 auto 0.8rem;
+    border: 3px solid #8B6914;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    background-color: #2a1a10;
+}
+
+.header-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Placeholder when no portrait image is set yet */
+.header-portrait .portrait-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 2.5rem;
+    color: #8B6914;
+    opacity: 0.5;
+}
+
+.site-header h1 {
+    font-family: 'Uncial Antiqua', 'IM Fell English SC', serif;
+    font-size: 2rem;
+    color: #f0e6d0;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.site-header .subtitle {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1.05rem;
+    color: #c4a95a;
+    margin-top: 0.3rem;
+    font-style: italic;
+}
+
+/* Decorative divider line with diamond */
+.ornament {
+    text-align: center;
+    color: #8B6914;
+    font-size: 1.2rem;
+    margin: 0.8rem 0;
+    letter-spacing: 0.5rem;
+}
+
+/* ============================================================
+   NAVIGATION
+   The menu that appears on every page.
+   ============================================================ */
+
+.site-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(to bottom,
+        rgba(139, 105, 20, 0.1),
+        transparent);
+    border-bottom: 1px solid rgba(139, 105, 20, 0.25);
+}
+
+.site-nav a {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1.2rem;
+    color: #e8dcc6;
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+    color: #d4b85a;
+    border-color: #8B6914;
+    background-color: rgba(139, 105, 20, 0.15);
+}
+
+/* Separator dots between nav links */
+.site-nav .sep {
+    color: #c4a95a;
+    align-self: center;
+    font-size: 0.5rem;
+}
+
+/* ============================================================
+   CURRENTLY READING — banner at top of homepage
+   ============================================================ */
+
+.currently-reading {
+    text-align: center;
+    padding: 1.2rem 2rem;
+    background: linear-gradient(to right,
+        transparent,
+        rgba(139, 105, 20, 0.15),
+        transparent);
+    border-bottom: 1px solid rgba(139, 105, 20, 0.25);
+}
+
+.currently-reading-label {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.85rem;
+    color: #d4b85a;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.2rem;
+}
+
+.currently-reading-title {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1.3rem;
+    color: #f0e6d0;
+}
+
+.currently-reading-chapter {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1rem;
+    color: #e8dcc6;
+    margin-top: 0.2rem;
+    margin-bottom: 0;
+}
+
+/* ============================================================
+   HOMEPAGE — BLESSING MESSAGE
+   ============================================================ */
+
+.home-blessing {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.blessing-text {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 2rem;
+    color: #f0e6d0;
+    margin: 1.5rem 0;
+    letter-spacing: 0.03em;
+}
+
+.quill-inkwell-decoration {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.quill-inkwell-decoration img {
+    width: 150px;
+    height: auto;
+    opacity: 0.85;
+}
+
+/* ============================================================
+   PAGE CONTENT — used on all inner pages
+   ============================================================ */
+
+.page-content {
+    padding: 2rem 3rem;
+}
+
+.page-title {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 2rem;
+    color: #f0e6d0;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    font-family: 'IM Fell English SC', serif;
+    text-align: center;
+    color: #c4a95a;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1.4rem;
+    color: #d4b85a;
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.3);
+}
+
+h3 {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1.15rem;
+    color: #e8dcc6;
+    margin: 1.5rem 0 0.6rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* ============================================================
+   CARDS — used for resources, bios, articles, etc.
+   Each card is a little box with a title and description.
+   ============================================================ */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.card {
+    background: rgba(139, 105, 20, 0.1);
+    border: 1px solid rgba(139, 105, 20, 0.3);
+    padding: 1.5rem;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 3px 12px rgba(139, 105, 20, 0.25);
+    background: rgba(139, 105, 20, 0.15);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+.card p {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.card .card-type {
+    display: inline-block;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.75rem;
+    color: #d4b85a;
+    border: 1px solid #8B6914;
+    padding: 0.15rem 0.5rem;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.card a {
+    color: #d4b85a;
+    font-weight: 600;
+}
+
+.card a:hover {
+    color: #f0e6d0;
+}
+
+/* ============================================================
+   QUOTES — styled like manuscript excerpts
+   ============================================================ */
+
+.quote-card {
+    background: rgba(139, 105, 20, 0.08);
+    border-left: 4px solid #8B6914;
+    padding: 1.5rem 1.5rem 1.2rem;
+    margin: 1.2rem 0;
+    position: relative;
+}
+
+.quote-card::before {
+    content: "\201C"; /* opening curly quote */
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 4rem;
+    color: rgba(139, 105, 20, 0.3);
+    position: absolute;
+    top: -0.2rem;
+    left: 0.5rem;
+    line-height: 1;
+}
+
+.quote-card blockquote {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #e8dcc6;
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.quote-card .attribution {
+    text-align: right;
+    color: #c4a95a;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.9rem;
+}
+
+.quote-card .submitted-by {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 0.4rem;
+    text-align: right;
+}
+
+/* ============================================================
+   QUESTIONS SECTION
+   ============================================================ */
+
+.question-entry {
+    background: rgba(139, 105, 20, 0.08);
+    border: 1px solid rgba(139, 105, 20, 0.3);
+    padding: 1.5rem;
+    margin: 1.2rem 0;
+}
+
+.question-entry .question-text {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #f0e6d0;
+    margin-bottom: 0.8rem;
+}
+
+.question-entry .passage-ref {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.85rem;
+    color: #d4b85a;
+    margin-bottom: 0.8rem;
+}
+
+.question-entry .catena-quote {
+    background-color: rgba(139, 105, 20, 0.1);
+    border-left: 3px solid #c4a95a;
+    padding: 1rem;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #e8dcc6;
+    margin: 0.8rem 0;
+}
+
+.question-entry .catena-quote .father-name {
+    font-weight: 700;
+    font-style: normal;
+    color: #d4b85a;
+}
+
+/* ============================================================
+   BLOG POSTS — Community page
+   ============================================================ */
+
+.blog-post {
+    background: rgba(139, 105, 20, 0.08);
+    border: 1px solid rgba(139, 105, 20, 0.3);
+    margin: 1.5rem 0;
+    padding: 0;
+}
+
+.blog-post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.2);
+    background: rgba(139, 105, 20, 0.1);
+}
+
+.blog-post-author {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.95rem;
+    color: #e8dcc6;
+    font-weight: 700;
+}
+
+.blog-post-date {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.85rem;
+    color: #d4b85a;
+}
+
+.blog-post-title {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1.2rem;
+    color: #f0e6d0;
+    padding: 1rem 1.5rem 0;
+    margin: 0;
+    border: none;
+}
+
+.blog-post-body {
+    padding: 0.8rem 1.5rem 1rem;
+}
+
+.blog-post-body blockquote {
+    background-color: rgba(139, 105, 20, 0.1);
+    border-left: 3px solid #c4a95a;
+    padding: 1rem;
+    margin: 0.8rem 0;
+    font-style: italic;
+}
+
+.blog-post-body img {
+    max-width: 100%;
+    margin: 0.8rem 0;
+    border: 1px solid rgba(139, 105, 20, 0.3);
+}
+
+/* Comments section within a blog post */
+.blog-post-comments {
+    border-top: 1px solid rgba(139, 105, 20, 0.2);
+    padding: 1rem 1.5rem;
+    background: rgba(139, 105, 20, 0.05);
+}
+
+.blog-post-comments h4 {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.9rem;
+    color: #c4a95a;
+    margin-bottom: 0.8rem;
+}
+
+.blog-comment {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.1);
+}
+
+.blog-comment:last-child {
+    border-bottom: none;
+}
+
+.comment-author {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.85rem;
+    color: #e8dcc6;
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.blog-comment p {
+    font-size: 0.95rem;
+    margin: 0.3rem 0 0;
+}
+
+.no-comments {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.announcement h3 {
+    margin-top: 0.3rem;
+}
+
+/* ============================================================
+   MEMBER DIRECTORY (displayed carefully)
+   ============================================================ */
+
+.member-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: rgba(139, 105, 20, 0.08);
+    border: 1px solid rgba(139, 105, 20, 0.3);
+    padding: 1rem 1.2rem;
+    margin: 0.8rem 0;
+}
+
+.member-card .member-initial {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 2rem;
+    color: #8B6914;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #8B6914;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.member-card .member-info h3 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.member-card .member-info p {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    color: #e8dcc6;
+}
+
+/* ============================================================
+   BIO SECTIONS for Church Fathers
+   ============================================================ */
+
+.bio-entry {
+    margin: 1.5rem 0;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.2);
+}
+
+.bio-entry:last-child {
+    border-bottom: none;
+}
+
+.bio-entry .dates {
+    font-family: 'IM Fell English SC', serif;
+    color: #8B6914;
+    font-size: 0.9rem;
+}
+
+/* ============================================================
+   LINKS & LISTS
+   ============================================================ */
+
+a {
+    color: #d4b85a;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(212, 184, 90, 0.3);
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #f0e6d0;
+    border-bottom-color: #f0e6d0;
+}
+
+ul, ol {
+    margin: 0.8rem 0 1.2rem 1.5rem;
+}
+
+li {
+    margin-bottom: 0.4rem;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.site-footer {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    border-top: 2px solid #8B6914;
+    background: linear-gradient(to top,
+        rgba(139, 105, 20, 0.15),
+        transparent);
+    color: #c4a95a;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.9rem;
+}
+
+.site-footer .footer-ornament {
+    color: #8B6914;
+    font-size: 1rem;
+    letter-spacing: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.site-footer .footer-verse {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #e8dcc6;
+    max-width: 500px;
+    margin: 0 auto 0.3rem;
+    line-height: 1.6;
+}
+
+.site-footer .footer-cite {
+    font-size: 0.85rem;
+    color: #d4b85a;
+    margin-bottom: 0;
+}
+
+/* ============================================================
+   HELPER / UTILITY CLASSES
+   ============================================================ */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+/* Inkwell & feather quill decoration — used as accents */
+.quill-decoration {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #8B6914;
+    margin: 1.5rem 0;
+    opacity: 0.7;
+}
+
+/* Drop cap for first paragraph of a section */
+.drop-cap::first-letter {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 3.5rem;
+    float: left;
+    line-height: 0.8;
+    color: #8B6914;
+    margin-right: 0.1em;
+    margin-top: 0.1em;
+}
+
+/* Notice/info boxes */
+.notice {
+    background-color: rgba(139, 105, 20, 0.1);
+    border: 1px dashed #c4a95a;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    color: #e8dcc6;
+}
+
+/* ============================================================
+   FORMS — for posting and commenting
+   ============================================================ */
+
+.post-form-container {
+    margin: 1.5rem 0;
+}
+
+.post-form-toggle {
+    cursor: pointer;
+}
+
+.post-form-toggle summary {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1rem;
+    color: #d4b85a;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid rgba(139, 105, 20, 0.3);
+    background: rgba(139, 105, 20, 0.08);
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.post-form-toggle summary:hover {
+    background: rgba(139, 105, 20, 0.15);
+}
+
+.post-form {
+    padding: 1.5rem;
+    border: 1px solid rgba(139, 105, 20, 0.3);
+    border-top: none;
+    background: rgba(139, 105, 20, 0.05);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.9rem;
+    color: #c4a95a;
+    margin-bottom: 0.3rem;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 1rem;
+    color: #f0e6d0;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(139, 105, 20, 0.4);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    border-color: #8B6914;
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(240, 230, 208, 0.4);
+}
+
+.form-group input[type="file"] {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.9rem;
+    color: #e8dcc6;
+}
+
+.btn {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1rem;
+    color: #f0e6d0;
+    background: rgba(139, 105, 20, 0.3);
+    border: 1px solid #8B6914;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: rgba(139, 105, 20, 0.5);
+    color: #fff;
+}
+
+.btn-small {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+}
+
+/* Inline comment form */
+.comment-form {
+    margin-top: 0.8rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.comment-name-input {
+    width: 120px !important;
+    padding: 0.4rem 0.6rem;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.9rem;
+    color: #f0e6d0;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(139, 105, 20, 0.4);
+    outline: none;
+    flex-shrink: 0;
+}
+
+.comment-body-input {
+    flex: 1;
+    padding: 0.4rem 0.6rem;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.9rem;
+    color: #f0e6d0;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(139, 105, 20, 0.4);
+    outline: none;
+}
+
+.comment-name-input::placeholder,
+.comment-body-input::placeholder {
+    color: rgba(240, 230, 208, 0.4);
+}
+
+.comment-name-input:focus,
+.comment-body-input:focus {
+    border-color: #8B6914;
+}
+
+/* ============================================================
+   MOBILE / RESPONSIVE STYLES
+   Makes the site look good on phones and tablets.
+   ============================================================ */
+
+@media (max-width: 900px) {
+    .page-frame {
+        margin: 0.5rem;
+    }
+
+    .page-content {
+        padding: 1.5rem 1.5rem;
+    }
+
+    .site-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Scale down corner ornaments on tablets */
+    .page-frame::before,
+    .page-frame::after,
+    .page-inner::before,
+    .page-inner::after {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .site-nav .sep {
+        display: none;
+    }
+
+    .page-inner {
+        margin: 6px;
+    }
+
+    .page-content {
+        padding: 1.2rem 1rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    /* Portrait and icons scale on phone */
+    .header-portrait {
+        width: 120px;
+        height: 158px;
+    }
+
+    .header-icon-left,
+    .header-icon-right {
+        width: 18px;
+        height: 26px;
+        top: 0.8rem;
+    }
+
+    .header-icon-left {
+        left: 0.8rem;
+    }
+
+    .header-icon-right {
+        right: 0.8rem;
+    }
+
+    /* Smaller corner ornaments on phones */
+    .page-frame::before,
+    .page-frame::after,
+    .page-inner::before,
+    .page-inner::after {
+        width: 45px;
+        height: 45px;
+    }
+
+    /* Stack comment form on mobile */
+    .form-row {
+        flex-direction: column;
+    }
+
+    .comment-name-input {
+        width: 100% !important;
+    }
+}

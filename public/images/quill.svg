@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 80" fill="none">
+  <!-- Feather quill pen -->
+  <!-- Nib (pen tip) -->
+  <path d="M30 78 L28 68 L32 68 Z" fill="#3d2b1a"/>
+  <path d="M29 70 L30 78 L31 70" fill="#8B6914" opacity="0.6"/>
+  <!-- Shaft -->
+  <path d="M28.5 68 L29 30 L31 30 L31.5 68 Z" fill="#5c3a0a"/>
+  <!-- Feather barbs - right side -->
+  <path d="M31 55 Q45 48 50 35 Q42 42 31 48 Z" fill="#8B6914" opacity="0.85"/>
+  <path d="M31 42 Q48 32 52 18 Q44 28 31 35 Z" fill="#8B6914" opacity="0.75"/>
+  <path d="M31 30 Q46 18 48 5 Q40 16 31 24 Z" fill="#8B6914" opacity="0.65"/>
+  <!-- Feather barbs - left side -->
+  <path d="M29 55 Q15 48 10 35 Q18 42 29 48 Z" fill="#a07828" opacity="0.85"/>
+  <path d="M29 42 Q12 32 8 18 Q16 28 29 35 Z" fill="#a07828" opacity="0.75"/>
+  <path d="M29 30 Q14 18 12 5 Q20 16 29 24 Z" fill="#a07828" opacity="0.65"/>
+  <!-- Central rachis (spine of feather) -->
+  <path d="M29.5 65 Q29 40 30 8" stroke="#5c3a0a" stroke-width="0.8" fill="none"/>
+</svg>

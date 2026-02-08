@@ -327,132 +327,6 @@ body {
 }
 
 /* ============================================================
-   HOMEPAGE — THE OPEN BOOK (legacy)
-   ============================================================ */
-
-.hero-book {
-    padding: 3rem 2rem;
-    text-align: center;
-    position: relative;
-}
-
-/* If you add a background image of an open book on a desk,
-   uncomment and edit this section:
-
-.hero-book {
-    background-image: url('images/book-on-desk.jpg');
-    background-size: cover;
-    background-position: center;
-    min-height: 500px;
-}
-*/
-
-.book-container {
-    display: flex;
-    max-width: 900px;
-    margin: 0 auto;
-    box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.3),
-        0 0 60px rgba(139, 105, 20, 0.1);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-/* Left page of the open book */
-.book-page-left,
-.book-page-right {
-    flex: 1;
-    padding: 2.5rem 2rem;
-    background-color: #f9f2e3;
-    position: relative;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.book-page-left {
-    background: linear-gradient(to right, #ede3cc, #f5ecd7);
-    border-right: 2px solid #d4c4a0;
-    box-shadow: inset -8px 0 15px -8px rgba(0, 0, 0, 0.15);
-}
-
-.book-page-right {
-    background: linear-gradient(to left, #ede3cc, #f5ecd7);
-    border-left: none;
-    box-shadow: inset 8px 0 15px -8px rgba(0, 0, 0, 0.15);
-}
-
-/* The "spine" shadow between pages */
-.book-page-left::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 15px;
-    background: linear-gradient(to left,
-        rgba(0, 0, 0, 0.08),
-        transparent);
-}
-
-.book-page-right::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 15px;
-    background: linear-gradient(to right,
-        rgba(0, 0, 0, 0.08),
-        transparent);
-}
-
-/* Illuminated capital letter - the big decorative first letter */
-.illuminated-letter {
-    font-family: 'Uncial Antiqua', serif;
-    font-size: 5rem;
-    float: left;
-    line-height: 0.85;
-    color: #8B6914;
-    margin-right: -0.05em;
-    margin-top: 0.05em;
-    text-shadow: 2px 2px 4px rgba(139, 105, 20, 0.3);
-    /* In real illuminated manuscripts, the first letter was
-       painted in gold with intricate decorations around it */
-}
-
-.book-title {
-    font-family: 'Uncial Antiqua', serif;
-    font-size: 1.6rem;
-    color: #4a2c0a;
-    margin-bottom: 1rem;
-    line-height: 1.4;
-}
-
-.book-text {
-    font-size: 1.05rem;
-    line-height: 1.9;
-    color: #3d2b1a;
-    text-align: left;
-}
-
-.book-verse {
-    font-style: italic;
-    text-align: center;
-    margin-top: 1.5rem;
-    color: #5c3a0a;
-    font-size: 1.05rem;
-}
-
-.book-verse cite {
-    display: block;
-    font-size: 0.9rem;
-    margin-top: 0.4rem;
-    color: #8B6914;
-}
-
-/* ============================================================
    PAGE CONTENT — used on all inner pages
    ============================================================ */
 
@@ -928,31 +802,6 @@ li {
         padding: 1.5rem 1.5rem;
     }
 
-    /* Stack the book pages vertically on small screens */
-    .book-container {
-        flex-direction: column;
-    }
-
-    .book-page-left {
-        border-right: none;
-        border-bottom: 2px solid #d4c4a0;
-        box-shadow: inset 0 -8px 15px -8px rgba(0, 0, 0, 0.15);
-        min-height: auto;
-    }
-
-    .book-page-left::after {
-        display: none;
-    }
-
-    .book-page-right {
-        box-shadow: inset 0 8px 15px -8px rgba(0, 0, 0, 0.15);
-        min-height: auto;
-    }
-
-    .book-page-right::before {
-        display: none;
-    }
-
     .site-header h1 {
         font-size: 1.5rem;
     }
@@ -987,19 +836,6 @@ li {
 
     .page-content {
         padding: 1.2rem 1rem;
-    }
-
-    .hero-book {
-        padding: 1.5rem 1rem;
-    }
-
-    .book-page-left,
-    .book-page-right {
-        padding: 1.5rem 1.2rem;
-    }
-
-    .illuminated-letter {
-        font-size: 3.5rem;
     }
 
     .page-title {

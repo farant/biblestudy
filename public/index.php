@@ -32,18 +32,42 @@ switch ($path) {
         $pageTitle = "Community — St. Joseph's Catena Aurea Reading Group";
         break;
 
-    case 'post/create':
-        $page = 'post_create';
-        $pageTitle = "New Post — St. Joseph's Catena Aurea Reading Group";
+    case 'admin':
+        $page = 'admin_login';
+        $pageTitle = "Admin Login — St. Joseph's Catena Aurea Reading Group";
         break;
 
+    case 'admin/login':
+        handleAdminLogin();
+        exit;
+
+    case 'admin/logout':
+        handleAdminLogout();
+        exit;
+
+    case 'admin/password':
+        $page = 'admin_password';
+        $pageTitle = "Change Password — St. Joseph's Catena Aurea Reading Group";
+        break;
+
+    case 'admin/password/save':
+        handlePasswordChange();
+        exit;
+
     case 'post/save':
-        // Handle form submission
         handlePostSave();
+        exit;
+
+    case 'post/delete':
+        handlePostDelete();
         exit;
 
     case 'comment/save':
         handleCommentSave();
+        exit;
+
+    case 'comment/delete':
+        handleCommentDelete();
         exit;
 
     default:
@@ -57,7 +81,84 @@ switch ($path) {
 require __DIR__ . '/../templates/layout.php';
 
 
-// ---- FORM HANDLERS ----
+// ---- ADMIN HANDLERS ----
+
+function handleAdminLogin(): void {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        header('Location: /admin');
+        return;
+    }
+
+    $db = getDb();
+    $username = trim($_POST['username'] ?? '');
+    $password = $_POST['password'] ?? '';
+
+    $stmt = $db->prepare('SELECT id, display_name, password_hash FROM admins WHERE username = ?');
+    $stmt->execute([$username]);
+    $admin = $stmt->fetch();
+
+    if ($admin && password_verify($password, $admin['password_hash'])) {
+        $_SESSION['admin_id'] = $admin['id'];
+        $_SESSION['admin_name'] = $admin['display_name'];
+        $_SESSION['admin_username'] = $username;
+        header('Location: /?welcome=1');
+    } else {
+        header('Location: /admin?error=invalid');
+    }
+}
+
+function handleAdminLogout(): void {
+    $_SESSION = [];
+    session_destroy();
+    header('Location: /');
+}
+
+function handlePasswordChange(): void {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isAdmin()) {
+        header('Location: /admin');
+        return;
+    }
+
+    if (!verifyCsrf()) {
+        header('Location: /admin/password?error=csrf');
+        return;
+    }
+
+    $db = getDb();
+    $currentPassword = $_POST['current_password'] ?? '';
+    $newPassword = $_POST['new_password'] ?? '';
+    $confirmPassword = $_POST['confirm_password'] ?? '';
+
+    if ($newPassword === '' || strlen($newPassword) < 6) {
+        header('Location: /admin/password?error=short');
+        return;
+    }
+
+    if ($newPassword !== $confirmPassword) {
+        header('Location: /admin/password?error=mismatch');
+        return;
+    }
+
+    // Verify current password
+    $stmt = $db->prepare('SELECT password_hash FROM admins WHERE id = ?');
+    $stmt->execute([$_SESSION['admin_id']]);
+    $hash = $stmt->fetchColumn();
+
+    if (!password_verify($currentPassword, $hash)) {
+        header('Location: /admin/password?error=wrong');
+        return;
+    }
+
+    // Update password
+    $newHash = password_hash($newPassword, PASSWORD_BCRYPT);
+    $stmt = $db->prepare('UPDATE admins SET password_hash = ? WHERE id = ?');
+    $stmt->execute([$newHash, $_SESSION['admin_id']]);
+
+    header('Location: /admin/password?success=1');
+}
+
+
+// ---- POST/COMMENT HANDLERS ----
 
 function handlePostSave(): void {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -74,7 +175,6 @@ function handlePostSave(): void {
 
     // Basic validation
     if ($authorName === '' || $body === '') {
-        // Redirect back with a simple error
         $redirect = $section === 'study_aids' ? '/resources' : '/community';
         header("Location: {$redirect}?error=missing_fields");
         return;
@@ -97,6 +197,38 @@ function handlePostSave(): void {
         $body,
         $imageUrl,
     ]);
+
+    $redirect = $section === 'study_aids' ? '/resources' : '/community';
+    header("Location: {$redirect}#posts");
+}
+
+function handlePostDelete(): void {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isAdmin()) {
+        header('Location: /');
+        return;
+    }
+
+    if (!verifyCsrf()) {
+        header('Location: /');
+        return;
+    }
+
+    $db = getDb();
+    $postId = (int)($_POST['post_id'] ?? 0);
+
+    if ($postId < 1) {
+        header('Location: /');
+        return;
+    }
+
+    // Get section before deleting (for redirect)
+    $stmt = $db->prepare('SELECT section FROM posts WHERE id = ?');
+    $stmt->execute([$postId]);
+    $section = $stmt->fetchColumn();
+
+    // Delete post (comments cascade automatically)
+    $stmt = $db->prepare('DELETE FROM posts WHERE id = ?');
+    $stmt->execute([$postId]);
 
     $redirect = $section === 'study_aids' ? '/resources' : '/community';
     header("Location: {$redirect}#posts");
@@ -136,6 +268,45 @@ function handleCommentSave(): void {
 
     $redirect = $section === 'study_aids' ? '/resources' : '/community';
     header("Location: {$redirect}#post-{$postId}");
+}
+
+function handleCommentDelete(): void {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isAdmin()) {
+        header('Location: /');
+        return;
+    }
+
+    if (!verifyCsrf()) {
+        header('Location: /');
+        return;
+    }
+
+    $db = getDb();
+    $commentId = (int)($_POST['comment_id'] ?? 0);
+
+    if ($commentId < 1) {
+        header('Location: /');
+        return;
+    }
+
+    // Get post info for redirect
+    $stmt = $db->prepare('
+        SELECT p.id, p.section FROM comments c
+        JOIN posts p ON p.id = c.post_id
+        WHERE c.id = ?
+    ');
+    $stmt->execute([$commentId]);
+    $post = $stmt->fetch();
+
+    $stmt = $db->prepare('DELETE FROM comments WHERE id = ?');
+    $stmt->execute([$commentId]);
+
+    if ($post) {
+        $redirect = $post['section'] === 'study_aids' ? '/resources' : '/community';
+        header("Location: {$redirect}#post-{$post['id']}");
+    } else {
+        header('Location: /community');
+    }
 }
 
 function handleImageUpload(array $file): ?string {

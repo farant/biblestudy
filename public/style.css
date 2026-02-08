@@ -796,6 +796,85 @@ li {
 }
 
 /* ============================================================
+   ADMIN BAR & DELETE BUTTONS
+   ============================================================ */
+
+.admin-bar {
+    text-align: center;
+    padding: 0.4rem 1rem;
+    background: rgba(139, 105, 20, 0.15);
+    border-bottom: 1px solid rgba(139, 105, 20, 0.25);
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.8rem;
+    color: #c4a95a;
+}
+
+.admin-bar a {
+    color: #d4b85a;
+    border-bottom: none;
+}
+
+.admin-bar a:hover {
+    color: #f0e6d0;
+}
+
+.admin-actions {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.admin-actions p {
+    margin-bottom: 0.5rem;
+}
+
+.delete-form {
+    padding: 0.5rem 1.5rem;
+    border-top: 1px solid rgba(192, 57, 43, 0.2);
+    text-align: right;
+}
+
+.delete-form-inline {
+    display: inline;
+    margin-left: 0.5rem;
+}
+
+.btn-delete {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.8rem;
+    color: #c0392b;
+    background: transparent;
+    border: 1px solid rgba(192, 57, 43, 0.3);
+    padding: 0.2rem 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+    background: rgba(192, 57, 43, 0.15);
+    border-color: #c0392b;
+}
+
+.btn-delete-small {
+    font-size: 0.75rem;
+    color: #c0392b;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0 0.3rem;
+    opacity: 0.6;
+}
+
+.btn-delete-small:hover {
+    opacity: 1;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ============================================================
    FORMS — for posting and commenting
    ============================================================ */
 

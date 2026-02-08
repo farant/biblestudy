@@ -78,49 +78,7 @@ try {
         <?php endif; ?>
 
         <?php foreach ($posts as $post): ?>
-            <article class="blog-post" id="post-<?= $post['id'] ?>">
-                <div class="blog-post-header">
-                    <span class="blog-post-author"><?= e($post['author_name']) ?></span>
-                    <span class="blog-post-date"><?= formatDate($post['created_at']) ?></span>
-                </div>
-                <?php if ($post['title']): ?>
-                    <h3 class="blog-post-title"><?= e($post['title']) ?></h3>
-                <?php endif; ?>
-                <div class="blog-post-body">
-                    <?= nl2br(e($post['body'])) ?>
-                    <?php if ($post['image_url']): ?>
-                        <img src="<?= e($post['image_url']) ?>" alt="Post image">
-                    <?php endif; ?>
-                </div>
-
-                <!-- Comments -->
-                <div class="blog-post-comments">
-                    <h4>Comments</h4>
-                    <?php
-                    $commentStmt->execute([$post['id']]);
-                    $comments = $commentStmt->fetchAll();
-                    ?>
-                    <?php if (empty($comments)): ?>
-                        <p class="no-comments">No comments yet.</p>
-                    <?php endif; ?>
-                    <?php foreach ($comments as $comment): ?>
-                        <div class="blog-comment">
-                            <span class="comment-author"><?= e($comment['author_name']) ?></span>
-                            <span class="comment-date"><?= formatDateTime($comment['created_at']) ?></span>
-                            <p><?= nl2br(e($comment['body'])) ?></p>
-                        </div>
-                    <?php endforeach; ?>
-
-                    <form action="/comment/save" method="POST" class="comment-form">
-                        <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
-                        <div class="form-row">
-                            <input type="text" name="author_name" placeholder="Your name (optional)" class="comment-name-input">
-                            <input type="text" name="body" placeholder="Write a comment..." required class="comment-body-input">
-                            <button type="submit" class="btn btn-small">Reply</button>
-                        </div>
-                    </form>
-                </div>
-            </article>
+            <?php require __DIR__ . '/_post.php'; ?>
         <?php endforeach; ?>
 
     </div><!-- end page-content -->

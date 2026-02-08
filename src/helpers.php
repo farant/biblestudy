@@ -3,6 +3,11 @@
  * Helper functions used across the site.
  */
 
+// Start session for admin login
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 /**
  * Safely escape output for HTML.
  */
@@ -43,4 +48,36 @@ function currentPage(): string {
  */
 function isActive(string $page): string {
     return currentPage() === $page ? ' class="active"' : '';
+}
+
+/**
+ * Check if the current user is logged in as admin.
+ */
+function isAdmin(): bool {
+    return !empty($_SESSION['admin_id']);
+}
+
+/**
+ * Get the logged-in admin's display name.
+ */
+function adminName(): string {
+    return $_SESSION['admin_name'] ?? '';
+}
+
+/**
+ * Generate a CSRF token for forms.
+ */
+function csrfToken(): string {
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+    return $_SESSION['csrf_token'];
+}
+
+/**
+ * Verify a submitted CSRF token.
+ */
+function verifyCsrf(): bool {
+    $token = $_POST['csrf_token'] ?? '';
+    return hash_equals($_SESSION['csrf_token'] ?? '', $token);
 }

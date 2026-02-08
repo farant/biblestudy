@@ -37,6 +37,14 @@
         <a href="/community"<?= isActive('community') ?>>Community</a>
     </nav>
 
+    <?php if (isAdmin()): ?>
+    <div class="admin-bar">
+        Logged in as <?= e(adminName()) ?>
+        &middot; <a href="/admin">Admin</a>
+        &middot; <a href="/admin/logout">Log Out</a>
+    </div>
+    <?php endif; ?>
+
     <!-- ======== PAGE CONTENT ======== -->
     <?php require __DIR__ . "/{$page}.php"; ?>
 

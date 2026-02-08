@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 70" fill="none">
+  <!-- Inkwell / ink pot -->
+  <!-- Base -->
+  <ellipse cx="30" cy="62" rx="24" ry="5" fill="#3d2b1a"/>
+  <!-- Body of the pot -->
+  <path d="M8 45 Q6 62 6 62 L54 62 Q54 62 52 45 Z" fill="#4a3520"/>
+  <!-- Neck narrowing -->
+  <path d="M14 35 L8 45 L52 45 L46 35 Z" fill="#5c3a0a"/>
+  <!-- Rim -->
+  <ellipse cx="30" cy="35" rx="16" ry="4" fill="#6b4c1e"/>
+  <ellipse cx="30" cy="35" rx="14" ry="3" fill="#1a0f0a"/>
+  <!-- Ink surface -->
+  <ellipse cx="30" cy="35.5" rx="12" ry="2.5" fill="#0d0805" opacity="0.9"/>
+  <!-- Highlight on pot body -->
+  <path d="M18 45 Q16 53 18 60" stroke="#8B6914" stroke-width="0.5" fill="none" opacity="0.4"/>
+  <!-- Gold band decoration -->
+  <path d="M10 50 L50 50" stroke="#8B6914" stroke-width="1.5" opacity="0.6"/>
+  <path d="M12 54 L48 54" stroke="#8B6914" stroke-width="0.8" opacity="0.4"/>
+  <!-- Small quill resting in inkwell -->
+  <line x1="32" y1="34" x2="45" y2="8" stroke="#5c3a0a" stroke-width="1.2"/>
+  <path d="M44 10 Q50 4 48 0 Q46 5 42 8 Z" fill="#8B6914" opacity="0.7"/>
+  <path d="M44 10 Q38 6 40 0 Q42 5 46 8 Z" fill="#a07828" opacity="0.6"/>
+</svg>

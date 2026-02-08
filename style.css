@@ -81,24 +81,27 @@ body {
     /* The multi-layer box-shadow creates the ornate gold border effect */
 }
 
-/* Decorative corner flourishes using CSS pseudo-elements */
+/* Decorative corner ornaments using SVG images */
 .page-frame::before,
 .page-frame::after {
-    content: "❧";
+    content: "";
     position: absolute;
-    font-size: 2rem;
-    color: #8B6914;
+    width: 80px;
+    height: 80px;
+    background-image: url('images/border-corner.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
     z-index: 2;
 }
 
 .page-frame::before {
-    top: 18px;
-    left: 24px;
+    top: 4px;
+    left: 4px;
 }
 
 .page-frame::after {
-    bottom: 18px;
-    right: 24px;
+    bottom: 4px;
+    right: 4px;
     transform: rotate(180deg);
 }
 
@@ -112,22 +115,26 @@ body {
 
 .page-inner::before,
 .page-inner::after {
-    content: "❧";
+    content: "";
     position: absolute;
-    font-size: 2rem;
-    color: rgba(139, 105, 20, 0.5);
+    width: 80px;
+    height: 80px;
+    background-image: url('images/border-corner.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
     z-index: 2;
 }
 
 .page-inner::before {
-    top: 6px;
-    right: 12px;
+    top: 0;
+    right: 0;
+    transform: scaleX(-1);
 }
 
 .page-inner::after {
-    bottom: 6px;
-    left: 12px;
-    transform: rotate(180deg);
+    bottom: 0;
+    left: 0;
+    transform: scaleY(-1);
 }
 
 /* ============================================================
@@ -144,12 +151,58 @@ body {
         transparent);
 }
 
-/* Decorative cross above the title */
-.site-header .cross-icon {
-    font-size: 2rem;
+/* Quill and inkwell icons flanking the header */
+.header-icon-left,
+.header-icon-right {
+    position: absolute;
+    top: 1.2rem;
+    width: 35px;
+    height: 50px;
+    opacity: 0.7;
+}
+
+.header-icon-left {
+    left: 1.5rem;
+}
+
+.header-icon-right {
+    right: 1.5rem;
+}
+
+.header-icon-left img,
+.header-icon-right img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Thomas Aquinas portrait */
+.header-portrait {
+    width: 90px;
+    height: 120px;
+    margin: 0 auto 0.8rem;
+    border: 2px solid #8B6914;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background-color: #e8dcc6;
+}
+
+.header-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Placeholder when no portrait image is set yet */
+.header-portrait .portrait-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 2.5rem;
     color: #8B6914;
-    display: block;
-    margin-bottom: 0.3rem;
+    opacity: 0.5;
 }
 
 .site-header h1 {
@@ -867,6 +920,15 @@ li {
     .card-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Scale down corner ornaments on tablets */
+    .page-frame::before,
+    .page-frame::after,
+    .page-inner::before,
+    .page-inner::after {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -904,9 +966,33 @@ li {
         font-size: 1.5rem;
     }
 
-    .member-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    /* Portrait and icons scale on phone */
+    .header-portrait {
+        width: 70px;
+        height: 95px;
+    }
+
+    .header-icon-left,
+    .header-icon-right {
+        width: 25px;
+        height: 38px;
+        top: 0.8rem;
+    }
+
+    .header-icon-left {
+        left: 0.8rem;
+    }
+
+    .header-icon-right {
+        right: 0.8rem;
+    }
+
+    /* Smaller corner ornaments on phones */
+    .page-frame::before,
+    .page-frame::after,
+    .page-inner::before,
+    .page-inner::after {
+        width: 45px;
+        height: 45px;
     }
 }

@@ -560,22 +560,109 @@ p {
 }
 
 /* ============================================================
-   ANNOUNCEMENTS
+   BLOG POSTS — Community page
    ============================================================ */
 
-.announcement {
-    border-bottom: 1px solid rgba(139, 105, 20, 0.2);
-    padding: 1.2rem 0;
+.blog-post {
+    background: linear-gradient(135deg, #faf3e4, #f0e6cf);
+    border: 1px solid #d4c4a0;
+    margin: 1.5rem 0;
+    padding: 0;
 }
 
-.announcement:last-child {
-    border-bottom: none;
+.blog-post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.15);
+    background: rgba(139, 105, 20, 0.05);
 }
 
-.announcement .date {
+.blog-post-author {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.95rem;
+    color: #5c3a0a;
+    font-weight: 700;
+}
+
+.blog-post-date {
     font-family: 'IM Fell English SC', serif;
     font-size: 0.85rem;
     color: #8B6914;
+}
+
+.blog-post-title {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1.2rem;
+    color: #4a2c0a;
+    padding: 1rem 1.5rem 0;
+    margin: 0;
+    border: none;
+}
+
+.blog-post-body {
+    padding: 0.8rem 1.5rem 1rem;
+}
+
+.blog-post-body blockquote {
+    background-color: rgba(139, 105, 20, 0.06);
+    border-left: 3px solid #c4a95a;
+    padding: 1rem;
+    margin: 0.8rem 0;
+    font-style: italic;
+}
+
+.blog-post-body img {
+    max-width: 100%;
+    margin: 0.8rem 0;
+    border: 1px solid #d4c4a0;
+}
+
+/* Comments section within a blog post */
+.blog-post-comments {
+    border-top: 1px solid rgba(139, 105, 20, 0.15);
+    padding: 1rem 1.5rem;
+    background: rgba(139, 105, 20, 0.03);
+}
+
+.blog-post-comments h4 {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.9rem;
+    color: #7a5c2e;
+    margin-bottom: 0.8rem;
+}
+
+.blog-comment {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.1);
+}
+
+.blog-comment:last-child {
+    border-bottom: none;
+}
+
+.comment-author {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.85rem;
+    color: #5c3a0a;
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.blog-comment p {
+    font-size: 0.95rem;
+    margin: 0.3rem 0 0;
+}
+
+.no-comments {
+    font-size: 0.9rem;
+    color: #999;
 }
 
 .announcement h3 {

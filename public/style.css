@@ -200,6 +200,15 @@ body {
     opacity: 0.5;
 }
 
+.portrait-attribution {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.75rem;
+    color: #c4a95a;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+    opacity: 0.7;
+}
+
 .site-header h1 {
     font-family: 'Uncial Antiqua', 'IM Fell English SC', serif;
     font-size: 2rem;

@@ -22,8 +22,9 @@
             <img src="/images/inkwell.svg" alt="Inkwell">
         </div>
         <div class="header-portrait">
-            <img src="/images/aquinas-portrait.jpg" alt="St. Thomas Aquinas">
+            <img src="/images/aquinas-portrait.jpg" alt="St. Thomas Aquinas by Fra Angelico">
         </div>
+        <p class="portrait-attribution">St. Thomas Aquinas by Fra Angelico</p>
         <h1>St. Joseph's Church<br><span style="margin-right: -0.05em">C</span>atena Aurea Reading Group</h1>
         <div class="ornament">&#10022; &#9670; &#10022;</div>
     </header>

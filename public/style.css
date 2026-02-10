@@ -172,8 +172,8 @@ body {
 
 /* Thomas Aquinas portrait */
 .header-portrait {
-    width: 160px;
-    height: 210px;
+    width: 220px;
+    height: 290px;
     margin: 0 auto 0.8rem;
     border: 3px solid #8B6914;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
@@ -202,11 +202,11 @@ body {
 
 .portrait-attribution {
     font-family: 'IM Fell English SC', serif;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     color: #c4a95a;
     margin-bottom: 0.5rem;
     font-style: italic;
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
 .site-header h1 {
@@ -1152,8 +1152,8 @@ li {
 
     /* Portrait and icons scale on phone */
     .header-portrait {
-        width: 120px;
-        height: 158px;
+        width: 160px;
+        height: 210px;
     }
 
     .header-icon-left,

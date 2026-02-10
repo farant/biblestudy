@@ -30,7 +30,7 @@ try {
             Please bring any prayer intentions for our group that you would like
             to share. And please bring any favorite or interesting quotes you'd
             like to discuss together! Have a blessed week and please stay warm
-            and healthy!
+            and healthy.
         </p>
         <p>
             We are hopeful some snow might melt and help the parking situation!

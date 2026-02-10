@@ -180,8 +180,7 @@ function handlePostSave(): void {
 
     // Basic validation
     if ($authorName === '' || $body === '') {
-        $redirect = $section === 'study_aids' ? '/resources' : '/community';
-        header("Location: {$redirect}?error=missing_fields");
+        header("Location: " . sectionRedirect($section) . "?error=missing_fields");
         return;
     }
 
@@ -203,8 +202,7 @@ function handlePostSave(): void {
         $imageUrl,
     ]);
 
-    $redirect = $section === 'study_aids' ? '/resources' : '/community';
-    header("Location: {$redirect}#posts");
+    header("Location: " . sectionRedirect($section) . "#posts");
 }
 
 function handlePostDelete(): void {
@@ -244,8 +242,7 @@ function handlePostDelete(): void {
     $stmt = $db->prepare('DELETE FROM posts WHERE id = ?');
     $stmt->execute([$postId]);
 
-    $redirect = $section === 'study_aids' ? '/resources' : '/community';
-    header("Location: {$redirect}#posts");
+    header("Location: " . sectionRedirect($section) . "#posts");
 }
 
 function handleCommentSave(): void {
@@ -285,8 +282,7 @@ function handleCommentSave(): void {
     $post->execute([$postId]);
     $section = $post->fetchColumn();
 
-    $redirect = $section === 'study_aids' ? '/resources' : '/community';
-    header("Location: {$redirect}#post-{$postId}");
+    header("Location: " . sectionRedirect($section) . "#post-{$postId}");
 }
 
 function handleCommentDelete(): void {
@@ -321,11 +317,18 @@ function handleCommentDelete(): void {
     $stmt->execute([$commentId]);
 
     if ($post) {
-        $redirect = $post['section'] === 'study_aids' ? '/resources' : '/community';
-        header("Location: {$redirect}#post-{$post['id']}");
+        header("Location: " . sectionRedirect($post['section']) . "#post-{$post['id']}");
     } else {
         header('Location: /community');
     }
+}
+
+function sectionRedirect(string $section): string {
+    return match($section) {
+        'study_aids' => '/resources',
+        'prayer_intentions' => '/',
+        default => '/community',
+    };
 }
 
 function handleImageUpload(array $file): ?string {

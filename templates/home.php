@@ -22,7 +22,7 @@ try {
         <p class="currently-reading-chapter"><?= e($currentChapter) ?></p>
         <p class="currently-reading-pace">Please read at your own pace!</p>
         <a href="https://a.co/d/07pyCbSM" class="book-cover-link" target="_blank">
-            <img src="/images/catena-aurea-cover.jpg" alt="Catena Aurea, Volume 1 — available on Amazon" class="book-cover">
+            <img src="/images/catena-aurea-cover.jpg" alt="Catena Aurea, Volume 1 — available on Amazon" class="book-cover" style="width: 100px; height: auto;">
         </a>
     </section>
 

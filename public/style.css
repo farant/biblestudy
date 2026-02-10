@@ -994,12 +994,20 @@ li {
     cursor: pointer;
     text-align: center;
     transition: background 0.3s ease;
-    list-style: none;
+    list-style: none !important;
+    list-style-type: none !important;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
-/* Hide default triangle in all browsers */
+/* Hide default triangle in ALL browsers */
 .post-form-toggle summary::-webkit-details-marker {
-    display: none;
+    display: none !important;
+}
+.post-form-toggle summary::marker {
+    display: none !important;
+    content: "" !important;
+    font-size: 0 !important;
 }
 
 /* Show pencil icon before the text instead */

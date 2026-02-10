@@ -994,6 +994,17 @@ li {
     cursor: pointer;
     text-align: center;
     transition: background 0.3s ease;
+    list-style: none;
+}
+
+/* Hide default triangle in all browsers */
+.post-form-toggle summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Show pencil icon before the text instead */
+.post-form-toggle summary::before {
+    content: "✎ ";
 }
 
 .post-form-toggle summary:hover {

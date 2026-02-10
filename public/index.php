@@ -32,6 +32,11 @@ switch ($path) {
         $pageTitle = "Community — St. Joseph's Catena Aurea Reading Group";
         break;
 
+    case 'prayers':
+        $page = 'prayers';
+        $pageTitle = "Prayer Intentions — St. Joseph's Catena Aurea Reading Group";
+        break;
+
     case 'admin':
         $page = 'admin_login';
         $pageTitle = "Admin Login — St. Joseph's Catena Aurea Reading Group";
@@ -326,7 +331,7 @@ function handleCommentDelete(): void {
 function sectionRedirect(string $section): string {
     return match($section) {
         'study_aids' => '/resources',
-        'prayer_intentions' => '/',
+        'prayer_intentions' => '/prayers',
         default => '/community',
     };
 }

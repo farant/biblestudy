@@ -304,6 +304,42 @@ body {
     margin-bottom: 0;
 }
 
+/* "Please read at your own pace" note */
+.currently-reading-pace {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #c4a95a;
+    margin-top: 0.4rem;
+    margin-bottom: 0;
+}
+
+/* ============================================================
+   HOMEPAGE — ANNOUNCEMENTS
+   ============================================================ */
+
+.announcements {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.25);
+    background: linear-gradient(to right,
+        transparent,
+        rgba(139, 105, 20, 0.08),
+        transparent);
+}
+
+.announcements h2 {
+    text-align: center;
+    border-bottom: none;
+    margin-top: 0;
+}
+
+.announcements p {
+    max-width: 600px;
+    margin: 0.8rem auto;
+    color: #e8dcc6;
+}
+
 /* ============================================================
    HOMEPAGE — BLESSING MESSAGE
    ============================================================ */

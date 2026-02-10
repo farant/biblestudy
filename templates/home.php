@@ -20,6 +20,21 @@ try {
         <p class="currently-reading-label">Currently Reading</p>
         <p class="currently-reading-title"><?= e($currentBook) ?></p>
         <p class="currently-reading-chapter"><?= e($currentChapter) ?></p>
+        <p class="currently-reading-pace">Please read at your own pace!</p>
+    </section>
+
+    <!-- ======== ANNOUNCEMENTS ======== -->
+    <section class="announcements">
+        <h2>Announcements</h2>
+        <p>
+            Please bring any prayer intentions for our group that you would like
+            to share. And please bring any favorite or interesting quotes you'd
+            like to discuss together! Have a blessed week and please stay warm
+            and healthy!
+        </p>
+        <p>
+            We are hopeful some snow might melt and help the parking situation!
+        </p>
     </section>
 
     <section class="home-blessing">

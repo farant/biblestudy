@@ -323,6 +323,26 @@ body {
     margin-bottom: 0;
 }
 
+/* Book cover image that links to Amazon */
+.book-cover-link {
+    display: inline-block;
+    margin-top: 1rem;
+    border-bottom: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-cover-link:hover {
+    transform: scale(1.03);
+    border-bottom: none;
+}
+
+.book-cover {
+    width: 180px;
+    height: auto;
+    border: 2px solid #8B6914;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
 /* ============================================================
    HOMEPAGE — ANNOUNCEMENTS
    ============================================================ */

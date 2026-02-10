@@ -39,6 +39,10 @@ try {
              STUDY AIDS — blog-style posts with images/text
              ============================================ -->
         <h2 id="posts">Study Aids</h2>
+        <p class="text-center" style="margin-bottom: 1.5rem;">
+            Anything you find that might be useful to help people study the Bible
+            or understand the Catholic faith better!
+        </p>
 
         <!-- New Post Form -->
         <div class="post-form-container">
@@ -48,7 +52,7 @@ try {
                     <input type="hidden" name="section" value="study_aids">
                     <div class="form-group">
                         <label for="sa-author">Your Name</label>
-                        <input type="text" id="sa-author" name="author_name" required placeholder="Amanda, Fran, etc.">
+                        <input type="text" id="sa-author" name="author_name" required placeholder="Your name">
                     </div>
                     <div class="form-group">
                         <label for="sa-title">Title (optional)</label>

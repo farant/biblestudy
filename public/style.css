@@ -337,10 +337,10 @@ body {
 }
 
 .book-cover {
-    width: 180px;
+    width: 100px;
     height: auto;
     border: 2px solid #8B6914;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* ============================================================

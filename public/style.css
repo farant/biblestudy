@@ -627,6 +627,7 @@ p {
 
 .blog-post-body {
     padding: 0.8rem 1.5rem 1rem;
+    overflow: hidden;
 }
 
 .blog-post-body blockquote {

@@ -36,7 +36,7 @@ try {
             and healthy.
         </p>
         <p>
-            We are hopeful some snow might melt and help the parking situation!
+            Due to the snow we'll be meeting in the church basement this Sunday!
         </p>
     </section>
 

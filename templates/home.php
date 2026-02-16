@@ -8,10 +8,26 @@ try {
 
     $chapterStmt = $db->prepare("SELECT value FROM settings WHERE key = 'currently_reading_chapter'");
     $chapterStmt->execute();
-    $currentChapter = $chapterStmt->fetchColumn() ?: 'Chapter 1, Verses 1–17';
+    $currentChapter = $chapterStmt->fetchColumn() ?: 'Chapter 2, Pages 62–86';
+
+    $topicStmt = $db->prepare("SELECT value FROM settings WHERE key = 'currently_reading_topic'");
+    $topicStmt->execute();
+    $currentTopic = $topicStmt->fetchColumn() ?: '';
+
+    // Fetch Quote of the Week
+    $quoteStmt = $db->prepare("SELECT value FROM settings WHERE key = 'quote_of_the_week_text'");
+    $quoteStmt->execute();
+    $quoteText = $quoteStmt->fetchColumn() ?: '';
+
+    $quoteSourceStmt = $db->prepare("SELECT value FROM settings WHERE key = 'quote_of_the_week_source'");
+    $quoteSourceStmt->execute();
+    $quoteSource = $quoteSourceStmt->fetchColumn() ?: '';
 } catch (Exception $e) {
     $currentBook = 'The Gospel According to St. Matthew';
-    $currentChapter = 'Chapter 1, Verses 1–17';
+    $currentChapter = 'Chapter 2, Pages 62–86';
+    $currentTopic = '';
+    $quoteText = '';
+    $quoteSource = '';
 }
 ?>
 
@@ -20,6 +36,9 @@ try {
         <p class="currently-reading-label">Currently Reading</p>
         <p class="currently-reading-title"><?= e($currentBook) ?></p>
         <p class="currently-reading-chapter"><?= e($currentChapter) ?></p>
+        <?php if ($currentTopic): ?>
+            <p class="currently-reading-topic"><?= e($currentTopic) ?></p>
+        <?php endif; ?>
         <p class="currently-reading-pace">Please read at your own pace!</p>
         <a href="https://a.co/d/07pyCbSM" class="book-cover-link" target="_blank">
             <img src="/images/catena-aurea-cover.jpg" alt="Catena Aurea, Volume 1 — available on Amazon" class="book-cover" style="width: 100px; height: auto;">
@@ -30,15 +49,23 @@ try {
     <section class="announcements">
         <h2>Announcements</h2>
         <p>
-            Please bring any prayer intentions for our group that you would like
-            to share. And please bring any favorite or interesting quotes you'd
-            like to discuss together! Have a blessed week and please stay warm
-            and healthy.
-        </p>
-        <p>
-            Due to the snow we'll be meeting in the church basement this Sunday!
+            Thank you for coming to the first session! We hope everyone stays warm
+            and healthy. For the next session please bring your favorite quotes!
         </p>
     </section>
+
+    <!-- ======== QUOTE OF THE WEEK ======== -->
+    <?php if ($quoteText): ?>
+    <section class="quote-of-the-week">
+        <h2>Quote of the Week</h2>
+        <div class="quote-card">
+            <blockquote><?= nl2br(e($quoteText)) ?></blockquote>
+            <?php if ($quoteSource): ?>
+                <p class="attribution">&mdash; <?= e($quoteSource) ?></p>
+            <?php endif; ?>
+        </div>
+    </section>
+    <?php endif; ?>
 
     <section class="home-blessing">
         <div class="ornament">&#10022; &#9670; &#10022;</div>

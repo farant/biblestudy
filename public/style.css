@@ -313,6 +313,19 @@ body {
     margin-bottom: 0;
 }
 
+/* Topic description for the current reading */
+.currently-reading-topic {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #e8dcc6;
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* "Please read at your own pace" note */
 .currently-reading-pace {
     font-family: 'Crimson Text', Georgia, serif;
@@ -367,6 +380,28 @@ body {
     max-width: 600px;
     margin: 0.8rem auto;
     color: #e8dcc6;
+}
+
+/* ============================================================
+   HOMEPAGE — QUOTE OF THE WEEK
+   ============================================================ */
+
+.quote-of-the-week {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.25);
+}
+
+.quote-of-the-week h2 {
+    text-align: center;
+    border-bottom: none;
+    margin-top: 0;
+}
+
+.quote-of-the-week .quote-card {
+    max-width: 600px;
+    margin: 0.8rem auto;
+    text-align: left;
 }
 
 /* ============================================================

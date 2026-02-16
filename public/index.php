@@ -37,6 +37,20 @@ switch ($path) {
         $pageTitle = "Prayer Intentions — St. Joseph's Catena Aurea Reading Group";
         break;
 
+    case 'commentators':
+        $page = 'commentators';
+        $pageTitle = "Commentators — St. Joseph's Catena Aurea Reading Group";
+        break;
+
+    case 'sessions':
+        $page = 'sessions';
+        $pageTitle = "Session Notes — St. Joseph's Catena Aurea Reading Group";
+        break;
+
+    case 'admin/quote/save':
+        handleQuoteSave();
+        exit;
+
     case 'admin':
         $page = 'admin_login';
         $pageTitle = "Admin Login — St. Joseph's Catena Aurea Reading Group";
@@ -332,8 +346,32 @@ function sectionRedirect(string $section): string {
     return match($section) {
         'study_aids' => '/resources',
         'prayer_intentions' => '/prayers',
+        'commentators' => '/commentators',
+        'session_notes' => '/sessions',
         default => '/community',
     };
+}
+
+function handleQuoteSave(): void {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isAdmin()) {
+        header('Location: /admin');
+        return;
+    }
+
+    if (!verifyCsrf()) {
+        header('Location: /admin?error=csrf');
+        return;
+    }
+
+    $db = getDb();
+    $quoteText = trim($_POST['quote_text'] ?? '');
+    $quoteSource = trim($_POST['quote_source'] ?? '');
+
+    // Update or insert the quote settings
+    $db->prepare("UPDATE settings SET value = ? WHERE key = 'quote_of_the_week_text'")->execute([$quoteText]);
+    $db->prepare("UPDATE settings SET value = ? WHERE key = 'quote_of_the_week_source'")->execute([$quoteSource]);
+
+    header('Location: /admin?quote_saved=1');
 }
 
 function handleImageUpload(array $file): ?string {

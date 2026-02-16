@@ -1,4 +1,18 @@
-<?php if (isAdmin()): ?>
+<?php if (isAdmin()):
+    // Fetch current quote of the week for the form
+    try {
+        $db = getDb();
+        $qtStmt = $db->prepare("SELECT value FROM settings WHERE key = 'quote_of_the_week_text'");
+        $qtStmt->execute();
+        $currentQuote = $qtStmt->fetchColumn() ?: '';
+        $qsStmt = $db->prepare("SELECT value FROM settings WHERE key = 'quote_of_the_week_source'");
+        $qsStmt->execute();
+        $currentQuoteSource = $qsStmt->fetchColumn() ?: '';
+    } catch (Exception $e) {
+        $currentQuote = '';
+        $currentQuoteSource = '';
+    }
+?>
     <div class="page-content">
         <h1 class="page-title">Admin</h1>
         <div class="ornament">&#10022; &#9670; &#10022;</div>
@@ -18,6 +32,31 @@
             While logged in, you'll see <span style="color: #c0392b;">&#10005; Delete</span>
             buttons on posts and comments across the site.
         </p>
+
+        <div class="ornament">&#10022; &#9670; &#10022;</div>
+
+        <!-- Quote of the Week editor -->
+        <h2>Quote of the Week</h2>
+        <p style="color: #c4a95a; font-size: 0.95rem;">
+            Set a highlighted quote that appears on the homepage. Leave the text blank to hide it.
+        </p>
+
+        <?php if (isset($_GET['quote_saved'])): ?>
+            <p class="notice" style="color: #d4b85a;">Quote of the Week updated!</p>
+        <?php endif; ?>
+
+        <form action="/admin/quote/save" method="POST" class="post-form" style="max-width: 600px; margin: 1rem auto;">
+            <input type="hidden" name="csrf_token" value="<?= e(csrfToken()) ?>">
+            <div class="form-group">
+                <label for="quote_text">Quote Text</label>
+                <textarea id="quote_text" name="quote_text" rows="4" placeholder="Enter a verse, quote, or comment..."><?= e($currentQuote) ?></textarea>
+            </div>
+            <div class="form-group">
+                <label for="quote_source">Source (optional)</label>
+                <input type="text" id="quote_source" name="quote_source" placeholder="e.g. St. John Chrysostom, Homily 1" value="<?= e($currentQuoteSource) ?>">
+            </div>
+            <button type="submit" class="btn">Save Quote</button>
+        </form>
     </div>
 
 <?php else: ?>

@@ -52,6 +52,9 @@ try {
             Thank you for coming to the first session! We hope everyone stays warm
             and healthy. For the next session please bring your favorite quotes!
         </p>
+        <p>
+            And all who could not come but wanted to &mdash; you were missed!
+        </p>
     </section>
 
     <!-- ======== QUOTE OF THE WEEK ======== -->

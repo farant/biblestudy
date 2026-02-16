@@ -27,7 +27,6 @@ try {
 
         <div class="quill-decoration">&#9998;</div>
 
-        <?php if (isAdmin()): ?>
         <div class="post-form-container" id="posts">
             <details class="post-form-toggle">
                 <summary>Add session notes</summary>
@@ -54,7 +53,6 @@ try {
                 </form>
             </details>
         </div>
-        <?php endif; ?>
 
         <?php if (empty($posts)): ?>
             <p class="text-center" style="color: #c4a95a; margin: 1.5rem 0;">

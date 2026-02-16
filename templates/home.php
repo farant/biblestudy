@@ -8,7 +8,7 @@ try {
 
     $chapterStmt = $db->prepare("SELECT value FROM settings WHERE key = 'currently_reading_chapter'");
     $chapterStmt->execute();
-    $currentChapter = $chapterStmt->fetchColumn() ?: 'Chapter 2, Pages 62–86';
+    $currentChapter = $chapterStmt->fetchColumn() ?: 'Chapter 1, Verses 18–25';
 
     $topicStmt = $db->prepare("SELECT value FROM settings WHERE key = 'currently_reading_topic'");
     $topicStmt->execute();

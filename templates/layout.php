@@ -39,8 +39,6 @@
         <span class="sep">&#9830;</span>
         <a href="/resources"<?= isActive('resources') ?>>Resources</a>
         <span class="sep">&#9830;</span>
-        <a href="/prayers"<?= isActive('prayers') ?>>Prayer Intentions</a>
-        <span class="sep">&#9830;</span>
         <a href="/community"<?= isActive('community') ?>>Community</a>
     </nav>
 

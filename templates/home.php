@@ -59,6 +59,11 @@ try {
                 It has a lot of the same commentary as the Catena Aurea but more, and
                 sometimes much more in depth and understandable.
             </p>
+            <p>
+                Please feel free to browse the app and find commentary to bring to the
+                table for discussion! Any amount of reading/supplementary material is
+                welcome. We know you are busy!
+            </p>
             <div class="catena-app-links">
                 <a href="https://apps.apple.com/us/app/catena-bible-commentaries/id1218663640" target="_blank">Download for iPhone/iPad</a>
                 <span class="sep">&middot;</span>

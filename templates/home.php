@@ -24,7 +24,7 @@ try {
     $quoteSource = $quoteSourceStmt->fetchColumn() ?: '';
 } catch (Exception $e) {
     $currentBook = 'The Gospel According to St. Matthew';
-    $currentChapter = 'Chapter 2, Pages 62–86';
+    $currentChapter = 'Chapter 1, Verses 18–25';
     $currentTopic = '';
     $quoteText = '';
     $quoteSource = '';
@@ -43,6 +43,30 @@ try {
         <a href="https://a.co/d/07pyCbSM" class="book-cover-link" target="_blank">
             <img src="/images/catena-aurea-cover.jpg" alt="Catena Aurea, Volume 1 — available on Amazon" class="book-cover" style="width: 100px; height: auto;">
         </a>
+    </section>
+
+    <!-- ======== CATENA APP RECOMMENDATION ======== -->
+    <section class="catena-app-section">
+        <h2>Free Bible Study App</h2>
+        <div class="catena-app-content">
+            <a href="https://catenabible.com" target="_blank" class="catena-app-icon-link">
+                <img src="/images/catena-app-icon.png" alt="Catena Bible App" class="catena-app-icon">
+            </a>
+            <p>
+                If you don't already have the free Catena Bible study app, this is an
+                amazing way to read the Fathers &mdash; and far beyond them chronologically!
+                All in one place. Only downside is typos and sometimes no exact citations.
+                It has a lot of the same commentary as the Catena Aurea but more, and
+                sometimes much more in depth and understandable.
+            </p>
+            <div class="catena-app-links">
+                <a href="https://apps.apple.com/us/app/catena-bible-commentaries/id1218663640" target="_blank">Download for iPhone/iPad</a>
+                <span class="sep">&middot;</span>
+                <a href="https://play.google.com/store/apps/details?id=com.catena&hl=en_US" target="_blank">Download for Android</a>
+                <span class="sep">&middot;</span>
+                <a href="https://catenabible.com" target="_blank">Visit Website</a>
+            </div>
+        </div>
     </section>
 
     <!-- ======== ANNOUNCEMENTS ======== -->

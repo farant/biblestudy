@@ -357,6 +357,70 @@ body {
 }
 
 /* ============================================================
+   HOMEPAGE — CATENA APP RECOMMENDATION
+   ============================================================ */
+
+.catena-app-section {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.25);
+    background: rgba(139, 105, 20, 0.05);
+}
+
+.catena-app-section h2 {
+    text-align: center;
+    border-bottom: none;
+    margin-top: 0;
+}
+
+.catena-app-content {
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.catena-app-icon-link {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+
+.catena-app-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 18px;
+    border: 1px solid rgba(139, 105, 20, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.catena-app-content p {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.95rem;
+    color: #e8dcc6;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.catena-app-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+}
+
+.catena-app-links a {
+    color: #d4b85a;
+}
+
+.catena-app-links a:hover {
+    color: #f0e6d0;
+}
+
+.catena-app-links .sep {
+    color: rgba(139, 105, 20, 0.5);
+}
+
+/* ============================================================
    HOMEPAGE — ANNOUNCEMENTS
    ============================================================ */
 

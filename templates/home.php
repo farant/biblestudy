@@ -36,6 +36,26 @@ try {
         <p>Thank you for coming!! Everyone is welcome, whether you have done the reading or not!</p>
     </section>
 
+    <!-- ======== ANNOUNCEMENTS ======== -->
+    <section class="announcements">
+        <h2>Announcements</h2>
+        <p>
+            We will be meeting Sunday March 8th in the church basement after
+            10:30 Mass! Please bring any favorite quotes, questions and thoughts.
+            We will be doing the rosary, so please, also bring your prayer intentions!
+        </p>
+        <p>
+            Here's some guiding questions:
+        </p>
+        <ol class="discussion-questions">
+            <li>Which Church Father's interpretation struck you most? Why?</li>
+            <li>What does this passage reveal about Christ?</li>
+            <li>What did the commentary illuminate that you hadn't noticed in the text before? Anything in the reading you learned that you didn't know before or hadn't thought of?</li>
+            <li>What practical application does this have for our lives this week?</li>
+            <li>What questions remain after reading?</li>
+        </ol>
+    </section>
+
     <!-- ======== CURRENTLY READING ======== -->
     <section class="currently-reading">
         <p class="currently-reading-label">Currently Reading</p>
@@ -77,26 +97,6 @@ try {
                 <a href="https://catenabible.com" target="_blank">Visit Website</a>
             </div>
         </div>
-    </section>
-
-    <!-- ======== ANNOUNCEMENTS ======== -->
-    <section class="announcements">
-        <h2>Announcements</h2>
-        <p>
-            We will be meeting Sunday March 8th in the church basement after
-            10:30 Mass! Please bring any favorite quotes, questions and thoughts.
-            We will be doing the rosary, so please, also bring your prayer intentions!
-        </p>
-        <p>
-            Here's some guiding questions:
-        </p>
-        <ol class="discussion-questions">
-            <li>Which Church Father's interpretation struck you most? Why?</li>
-            <li>What does this passage reveal about Christ?</li>
-            <li>What did the commentary illuminate that you hadn't noticed in the text before? Anything in the reading you learned that you didn't know before or hadn't thought of?</li>
-            <li>What practical application does this have for our lives this week?</li>
-            <li>What questions remain after reading?</li>
-        </ol>
     </section>
 
     <!-- ======== QUOTE OF THE WEEK ======== -->

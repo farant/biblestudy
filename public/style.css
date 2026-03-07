@@ -277,6 +277,24 @@ body {
 }
 
 /* ============================================================
+   WELCOME BANNER — very top of homepage
+   ============================================================ */
+
+.welcome-banner {
+    text-align: center;
+    padding: 1.2rem 2rem;
+    background: rgba(139, 105, 20, 0.12);
+    border-bottom: 1px solid rgba(139, 105, 20, 0.25);
+}
+
+.welcome-banner p {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 1.1rem;
+    color: #d4b85a;
+    margin: 0;
+}
+
+/* ============================================================
    CURRENTLY READING — banner at top of homepage
    ============================================================ */
 

@@ -31,6 +31,11 @@ try {
 }
 ?>
 
+    <!-- ======== WELCOME MESSAGE ======== -->
+    <section class="welcome-banner">
+        <p>Thank you for coming!! Everyone is welcome, whether you have done the reading or not!</p>
+    </section>
+
     <!-- ======== CURRENTLY READING ======== -->
     <section class="currently-reading">
         <p class="currently-reading-label">Currently Reading</p>
@@ -92,10 +97,6 @@ try {
             <li>What practical application does this have for our lives this week?</li>
             <li>What questions remain after reading?</li>
         </ol>
-        <p>
-            Thank you in advance for coming! Everyone is welcome, whether you
-            have done the reading or not!
-        </p>
     </section>
 
     <!-- ======== QUOTE OF THE WEEK ======== -->

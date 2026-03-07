@@ -78,11 +78,23 @@ try {
     <section class="announcements">
         <h2>Announcements</h2>
         <p>
-            Thank you for coming to the first session! We hope everyone stays warm
-            and healthy. For the next session please bring your favorite quotes!
+            We will be meeting Sunday March 8th in the church basement after
+            10:30 Mass! Please bring any favorite quotes, questions or thoughts.
+            We will be doing the rosary, so please, also bring your prayer intentions!
         </p>
         <p>
-            And all who could not come but wanted to &mdash; you were missed!
+            As a reminder, we have a 5-question exercise to help provoke our thoughts:
+        </p>
+        <ol class="discussion-questions">
+            <li>[Discussion question 1]</li>
+            <li>[Discussion question 2]</li>
+            <li>[Discussion question 3]</li>
+            <li>[Discussion question 4]</li>
+            <li>[Discussion question 5]</li>
+        </ol>
+        <p>
+            Thank you in advance for coming! Everyone is welcome, whether you
+            have done the reading or not!
         </p>
     </section>
 

@@ -446,6 +446,23 @@ body {
     color: #e8dcc6;
 }
 
+.discussion-questions {
+    max-width: 550px;
+    margin: 1rem auto;
+    text-align: left;
+    color: #e8dcc6;
+    padding-left: 1.8rem;
+}
+
+.discussion-questions li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.discussion-questions li::marker {
+    color: #d4b85a;
+}
+
 /* ============================================================
    HOMEPAGE — QUOTE OF THE WEEK
    ============================================================ */

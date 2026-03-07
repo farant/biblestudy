@@ -86,11 +86,11 @@ try {
             As a reminder, we have a 5-question exercise to help provoke our thoughts:
         </p>
         <ol class="discussion-questions">
-            <li>[Discussion question 1]</li>
-            <li>[Discussion question 2]</li>
-            <li>[Discussion question 3]</li>
-            <li>[Discussion question 4]</li>
-            <li>[Discussion question 5]</li>
+            <li>Which Church Father's interpretation struck you most? Why?</li>
+            <li>What does this passage reveal about Christ?</li>
+            <li>What did the commentary illuminate that you hadn't noticed in the text before? Anything in the reading you learned that you didn't know before or hadn't thought of?</li>
+            <li>What practical application does this have for our lives this week?</li>
+            <li>What questions remain after reading?</li>
         </ol>
         <p>
             Thank you in advance for coming! Everyone is welcome, whether you

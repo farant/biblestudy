@@ -79,11 +79,11 @@ try {
         <h2>Announcements</h2>
         <p>
             We will be meeting Sunday March 8th in the church basement after
-            10:30 Mass! Please bring any favorite quotes, questions or thoughts.
+            10:30 Mass! Please bring any favorite quotes, questions and thoughts.
             We will be doing the rosary, so please, also bring your prayer intentions!
         </p>
         <p>
-            As a reminder, we have a 5-question exercise to help provoke our thoughts:
+            Here's some guiding questions:
         </p>
         <ol class="discussion-questions">
             <li>Which Church Father's interpretation struck you most? Why?</li>

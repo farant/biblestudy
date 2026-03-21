@@ -107,6 +107,21 @@ try {
         </div>
     </section>
 
+    <!-- ======== LAPIDE.ORG ======== -->
+    <section class="lapide-section">
+        <h2>Cornelius a Lapide Commentary</h2>
+        <div class="lapide-content">
+            <p>
+                Fran has been working on translating the commentaries of
+                <strong>Cornelius a Lapide</strong>, one of the great Catholic
+                biblical commentators. His verse-by-verse translations are
+                available for free at <a href="https://lapide.org" target="_blank">lapide.org</a>.
+                A wonderful companion to the Catena Aurea!
+            </p>
+            <a href="https://lapide.org" target="_blank" class="lapide-link">Visit Lapide.org &rarr;</a>
+        </div>
+    </section>
+
     <!-- ======== QUOTE OF THE WEEK ======== -->
     <?php if ($quoteText): ?>
     <section class="quote-of-the-week">

@@ -138,7 +138,7 @@ body {
 
 .site-header {
     text-align: center;
-    padding: 2rem 2rem 1rem;
+    padding: 1.2rem 2rem 0.8rem;
     border-bottom: 2px solid #8B6914;
     position: relative;
     background: linear-gradient(to bottom,
@@ -172,9 +172,9 @@ body {
 
 /* Thomas Aquinas portrait */
 .header-portrait {
-    width: 220px;
-    height: 290px;
-    margin: 0 auto 0.8rem;
+    width: 150px;
+    height: 200px;
+    margin: 0 auto 0.6rem;
     border: 3px solid #8B6914;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -244,8 +244,8 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 0.3rem;
-    padding: 1rem 1.5rem;
+    gap: 0.2rem;
+    padding: 0.6rem 1rem;
     background: linear-gradient(to bottom,
         rgba(139, 105, 20, 0.1),
         transparent);
@@ -254,10 +254,10 @@ body {
 
 .site-nav a {
     font-family: 'IM Fell English SC', serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #e8dcc6;
     text-decoration: none;
-    padding: 0.5rem 1.5rem;
+    padding: 0.35rem 1rem;
     border: 1px solid transparent;
     transition: all 0.3s ease;
 }
@@ -506,6 +506,53 @@ body {
 
 .discussion-questions li::marker {
     color: #d4b85a;
+}
+
+/* ============================================================
+   HOMEPAGE — LAPIDE.ORG
+   ============================================================ */
+
+.lapide-section {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.25);
+    background: rgba(139, 105, 20, 0.05);
+}
+
+.lapide-section h2 {
+    text-align: center;
+    border-bottom: none;
+    margin-top: 0;
+}
+
+.lapide-content {
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.lapide-content p {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.95rem;
+    color: #e8dcc6;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.lapide-link {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1rem;
+    color: #d4b85a;
+    border: 1px solid rgba(139, 105, 20, 0.4);
+    padding: 0.4rem 1.2rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.lapide-link:hover {
+    background: rgba(139, 105, 20, 0.15);
+    color: #f0e6d0;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.4);
 }
 
 /* ============================================================
@@ -1353,8 +1400,8 @@ li {
 
     /* Portrait and icons scale on phone */
     .header-portrait {
-        width: 160px;
-        height: 210px;
+        width: 120px;
+        height: 160px;
     }
 
     .header-icon-left,

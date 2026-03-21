@@ -40,8 +40,10 @@ try {
     <section class="announcements">
         <h2>Announcements</h2>
         <p>
-            We will be meeting Sunday March 8th in the church basement after
-            10:30 Mass! Please bring any favorite quotes, questions and thoughts.
+            Our third meeting will be the Sunday after Easter &mdash; April 12th &mdash;
+            in the church basement after 10:30 Mass! The reading assignment is
+            <strong>Matthew 2:1&ndash;23, pages 62&ndash;86</strong> (25 pages).
+            Please bring any favorite quotes, questions and thoughts.
             We will be doing the rosary, so please, also bring your prayer intentions!
         </p>
         <p>

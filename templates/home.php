@@ -46,13 +46,19 @@ try {
             Please bring any favorite quotes, questions and thoughts.
             We will be doing the rosary, so please, also bring your prayer intentions!
         </p>
-        <p>
-            Here's some guiding questions:
+    </section>
+
+    <!-- ======== FIVE-PART QUESTIONNAIRE ======== -->
+    <section class="questionnaire">
+        <h2>Five-Part Questionnaire</h2>
+        <p class="questionnaire-note">
+            These questions are meant to be helpful, not to pressure anyone!
+            Use them if they spark something for you.
         </p>
         <ol class="discussion-questions">
             <li>Which Church Father's interpretation struck you most? Why?</li>
             <li>What does this passage reveal about Christ?</li>
-            <li>What did the commentary illuminate that you hadn't noticed in the text before? Anything in the reading you learned that you didn't know before or hadn't thought of?</li>
+            <li>What did the commentary illuminate that you hadn't noticed in the text before?</li>
             <li>What practical application does this have for our lives this week?</li>
             <li>What questions remain after reading?</li>
         </ol>

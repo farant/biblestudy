@@ -46,6 +46,9 @@ try {
             Please bring any favorite quotes, questions and thoughts.
             We will be doing the rosary, so please, also bring your prayer intentions!
         </p>
+        <a href="https://a.co/d/07pyCbSM" class="book-cover-link" target="_blank">
+            <img src="/images/catena-aurea-cover.jpg" alt="Catena Aurea, Volume 1 — available on Amazon" class="book-cover" style="width: 100px; height: auto;">
+        </a>
     </section>
 
     <!-- ======== FIVE-PART QUESTIONNAIRE ======== -->
@@ -62,20 +65,6 @@ try {
             <li>What practical application does this have for our lives this week?</li>
             <li>What questions remain after reading?</li>
         </ol>
-    </section>
-
-    <!-- ======== CURRENTLY READING ======== -->
-    <section class="currently-reading">
-        <p class="currently-reading-label">Currently Reading</p>
-        <p class="currently-reading-title"><?= e($currentBook) ?></p>
-        <p class="currently-reading-chapter"><?= e($currentChapter) ?></p>
-        <?php if ($currentTopic): ?>
-            <p class="currently-reading-topic"><?= e($currentTopic) ?></p>
-        <?php endif; ?>
-        <p class="currently-reading-pace">Please read at your own pace!</p>
-        <a href="https://a.co/d/07pyCbSM" class="book-cover-link" target="_blank">
-            <img src="/images/catena-aurea-cover.jpg" alt="Catena Aurea, Volume 1 — available on Amazon" class="book-cover" style="width: 100px; height: auto;">
-        </a>
     </section>
 
     <!-- ======== CATENA APP RECOMMENDATION ======== -->

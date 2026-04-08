@@ -40,8 +40,8 @@ try {
     <section class="announcements">
         <h2>Announcements</h2>
         <p>
-            Our third meeting will be two weeks after Easter &mdash; April 19th &mdash;
-            at the church basement! The reading assignment is
+            We will be postponing our next meeting until after Family Faith Formation.
+            Stay tuned for the updated date! The reading assignment is still
             <strong>Matthew 2:1&ndash;23, pages 62&ndash;86</strong> (25 pages).
             Please bring any favorite quotes, questions and thoughts.
             We will be doing the rosary, so please, also bring your prayer intentions!

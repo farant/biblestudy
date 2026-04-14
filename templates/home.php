@@ -44,7 +44,7 @@ try {
             Rosary &amp; the Catena group this Sunday, April 19th!
             We will be discussing <strong>Chapter Two</strong>.
             Please bring your thoughts to the table, and if you&rsquo;d like,
-            feel free to use our five-part questionnaire for the
+            feel free to use our six-part questionnaire for the
             &ldquo;around-the-room&rdquo; discussion. God bless you.
         </p>
         <a href="https://a.co/d/07pyCbSM" class="book-cover-link" target="_blank">
@@ -54,7 +54,7 @@ try {
 
     <!-- ======== FIVE-PART QUESTIONNAIRE ======== -->
     <section class="questionnaire">
-        <h2>Five-Part Questionnaire</h2>
+        <h2>Six-Part Questionnaire</h2>
         <p class="questionnaire-note">
             These questions are meant to be helpful, not to pressure anyone!
             Use them if they spark something for you.
@@ -65,6 +65,7 @@ try {
             <li>What did the commentary illuminate that you hadn't noticed in the text before?</li>
             <li>What practical application does this have for our lives this week?</li>
             <li>What questions remain after reading?</li>
+            <li>What passage do you believe is especially spiritually or morally valuable that you would like to offer to members of the group?</li>
         </ol>
     </section>
 

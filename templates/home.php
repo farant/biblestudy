@@ -40,11 +40,12 @@ try {
     <section class="announcements">
         <h2>Announcements</h2>
         <p>
-            We will be postponing our next meeting until after Family Faith Formation.
-            Stay tuned for the updated date! The reading assignment is still
-            <strong>Matthew 2:1&ndash;23, pages 62&ndash;86</strong> (25 pages).
-            Please bring any favorite quotes, questions and thoughts.
-            We will be doing the rosary, so please, also bring your prayer intentions!
+            We&rsquo;ll be meeting in the church basement after the 10:30 Mass for snacks,
+            Rosary &amp; the Catena group this Sunday, April 19th!
+            We will be discussing <strong>Chapter Two</strong>.
+            Please bring your thoughts to the table, and if you&rsquo;d like,
+            feel free to use our five-part questionnaire for the
+            &ldquo;around-the-room&rdquo; discussion. God bless you.
         </p>
         <a href="https://a.co/d/07pyCbSM" class="book-cover-link" target="_blank">
             <img src="/images/catena-aurea-cover.jpg" alt="Catena Aurea, Volume 1 — available on Amazon" class="book-cover" style="width: 100px; height: auto;">

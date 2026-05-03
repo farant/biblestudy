@@ -40,13 +40,11 @@ try {
     <section class="announcements">
         <h2>Announcements</h2>
         <p>
-            We&rsquo;ll be meeting in the church basement after the 10:30 Mass for snacks,
-            Rosary &amp; the Catena group this Sunday, April 19th!
-            We will be discussing <strong>Chapter Two</strong>.
-            Please bring your thoughts to the table, and if you&rsquo;d like,
-            feel free to use our six-part questionnaire for the
-            &ldquo;around-the-room&rdquo; discussion. God bless you.
+            We&rsquo;ll be meeting in the church basement after 10:30 Mass to discuss
+            <strong>Chapter Three</strong> of Matthew! Please take a look at the six
+            discussion questions and bring your thoughts to the table if you&rsquo;d like to.
         </p>
+        <p>God bless you!</p>
         <a href="https://a.co/d/07pyCbSM" class="book-cover-link" target="_blank">
             <img src="/images/catena-aurea-cover.jpg" alt="Catena Aurea, Volume 1 — available on Amazon" class="book-cover" style="width: 100px; height: auto;">
         </a>

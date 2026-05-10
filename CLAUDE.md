@@ -39,6 +39,13 @@ This is critical. Real user data lives in the PostgreSQL database — posts, com
 - Escape all output with the `e()` helper function.
 - All forms that perform destructive actions (delete) must include CSRF tokens.
 
+## Config Files
+
+Two simple config files control the Discussion Answers feature:
+
+- **`config/chapters.php`** — Lists which chapters appear in the dropdown. To add a new chapter, just add a line like `['slug' => 'matthew-4', 'label' => 'Matthew 4'],` to the array.
+- **`config/questions.php`** — The current discussion questions. If you change or add questions, new submissions will use the updated list. Old answers keep whatever questions they were originally asked — the question text is saved alongside each answer in the database.
+
 ## Deployment
 
 The site deploys automatically via Railway when code is pushed. Migrations run automatically on startup via `start.sh`. The site is live at https://sunflower.family.

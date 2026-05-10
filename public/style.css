@@ -1436,6 +1436,203 @@ li {
     .comment-name-input {
         width: 100% !important;
     }
+
+    /* Stack the load-answers form on mobile */
+    .load-answers-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .load-input {
+        width: 100%;
+    }
+}
+
+/* ============================================================
+   DISCUSSIONS PAGE — chapter answers
+   ============================================================ */
+
+.chapter-selector {
+    text-align: center;
+    padding: 1rem 0 1.5rem;
+}
+
+.chapter-selector label {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.95rem;
+    color: #c4a95a;
+    margin-right: 0.5rem;
+}
+
+.chapter-selector select {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 1rem;
+    color: #f0e6d0;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(139, 105, 20, 0.5);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+}
+
+.chapter-selector select:focus {
+    border-color: #8B6914;
+    outline: none;
+}
+
+.discussion-message {
+    text-align: center;
+    padding: 0.7rem 1.2rem;
+    margin-bottom: 1rem;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.95rem;
+}
+
+.discussion-message.success {
+    background: rgba(46, 125, 50, 0.15);
+    border: 1px solid rgba(46, 125, 50, 0.4);
+    color: #a5d6a7;
+}
+
+.discussion-message.info {
+    background: rgba(139, 105, 20, 0.1);
+    border: 1px solid rgba(139, 105, 20, 0.4);
+    color: #d4b85a;
+}
+
+.discussion-message.error {
+    background: rgba(192, 57, 43, 0.1);
+    border: 1px solid rgba(192, 57, 43, 0.3);
+    color: #e57373;
+}
+
+.load-answers-box {
+    padding: 1rem 0 0.8rem;
+}
+
+.load-answers-label {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.9rem;
+    color: #c4a95a;
+    margin-bottom: 0.6rem !important;
+}
+
+.load-answers-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.load-input {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.95rem;
+    color: #f0e6d0;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(139, 105, 20, 0.4);
+    padding: 0.4rem 0.7rem;
+    outline: none;
+    width: 160px;
+}
+
+.load-input:focus {
+    border-color: #8B6914;
+}
+
+.load-input::placeholder {
+    color: rgba(240, 230, 208, 0.4);
+}
+
+.form-divider {
+    text-align: center;
+    margin: 1rem 0;
+    position: relative;
+}
+
+.form-divider::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    border-top: 1px solid rgba(139, 105, 20, 0.3);
+}
+
+.form-divider span {
+    background: rgba(26, 15, 10, 0.95);
+    padding: 0 1rem;
+    position: relative;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.85rem;
+    color: #c4a95a;
+}
+
+.field-help {
+    font-size: 0.82rem !important;
+    color: #999 !important;
+    margin-top: 0.3rem !important;
+    margin-bottom: 0 !important;
+    font-style: italic;
+}
+
+.no-answers {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 2rem 0;
+}
+
+.answer-card {
+    background: rgba(139, 105, 20, 0.08);
+    border: 1px solid rgba(139, 105, 20, 0.3);
+    margin: 1.2rem 0;
+}
+
+.answer-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.2);
+    background: rgba(139, 105, 20, 0.1);
+}
+
+.answer-author {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1rem;
+    color: #e8dcc6;
+    font-weight: 700;
+}
+
+.answer-date {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.85rem;
+    color: #d4b85a;
+}
+
+.answer-card-body {
+    padding: 1rem 1.5rem;
+}
+
+.answer-item {
+    margin-bottom: 1.2rem;
+}
+
+.answer-item:last-child {
+    margin-bottom: 0;
+}
+
+.answer-question {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.88rem;
+    color: #c4a95a;
+    margin-bottom: 0.3rem !important;
+}
+
+.answer-text {
+    color: #e8dcc6;
+    margin-bottom: 0 !important;
+    padding-left: 0.8rem;
+    border-left: 2px solid rgba(139, 105, 20, 0.25);
 }
 
 /* Honeypot anti-spam */

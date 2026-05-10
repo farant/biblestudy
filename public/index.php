@@ -47,6 +47,23 @@ switch ($path) {
         $pageTitle = "Session Notes — St. Joseph's Catena Aurea Reading Group";
         break;
 
+    case 'discussions':
+        $page = 'discussions';
+        $pageTitle = "Discussion Answers — St. Joseph's Catena Aurea Reading Group";
+        break;
+
+    case 'discussions/save':
+        handleDiscussionSave();
+        exit;
+
+    case 'discussions/load':
+        handleDiscussionLoad();
+        exit;
+
+    case 'discussions/delete':
+        handleDiscussionDelete();
+        exit;
+
     case 'admin/quote/save':
         handleQuoteSave();
         exit;
@@ -348,6 +365,7 @@ function sectionRedirect(string $section): string {
         'prayer_intentions' => '/prayers',
         'commentators' => '/commentators',
         'session_notes' => '/sessions',
+        'discussions' => '/discussions',
         default => '/community',
     };
 }
@@ -372,6 +390,115 @@ function handleQuoteSave(): void {
     $db->prepare("UPDATE settings SET value = ? WHERE key = 'quote_of_the_week_source'")->execute([$quoteSource]);
 
     header('Location: /admin?quote_saved=1');
+}
+
+// ---- DISCUSSION ANSWER HANDLERS ----
+
+function handleDiscussionSave(): void {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        header('Location: /discussions');
+        return;
+    }
+
+    if (isSpam()) {
+        header('Location: /discussions');
+        return;
+    }
+
+    $db = getDb();
+    $chapterSlug = trim($_POST['chapter_slug'] ?? '');
+    $authorName = trim($_POST['author_name'] ?? '');
+    $password = $_POST['author_password'] ?? '';
+
+    $chapters = require __DIR__ . '/../config/chapters.php';
+    $validSlugs = array_column($chapters, 'slug');
+
+    if (!in_array($chapterSlug, $validSlugs) || $authorName === '' || $password === '') {
+        header('Location: /discussions?chapter=' . urlencode($chapterSlug) . '&error=missing_fields');
+        return;
+    }
+
+    // Build responses JSON from submitted questions + answers
+    $questions = $_POST['questions'] ?? [];
+    $answers = $_POST['answers'] ?? [];
+    $responses = [];
+    foreach ($questions as $i => $q) {
+        $responses[] = [
+            'question' => $q,
+            'answer' => trim($answers[$i] ?? ''),
+        ];
+    }
+    $responsesJson = json_encode($responses);
+
+    // Check if an entry already exists for this chapter + name
+    $stmt = $db->prepare('SELECT id, author_password_hash FROM discussion_answers WHERE chapter_slug = ? AND LOWER(author_name) = LOWER(?)');
+    $stmt->execute([$chapterSlug, $authorName]);
+    $existing = $stmt->fetch();
+
+    if ($existing) {
+        if (!password_verify($password, $existing['author_password_hash'])) {
+            header('Location: /discussions?chapter=' . urlencode($chapterSlug) . '&error=wrong_password');
+            return;
+        }
+        $stmt = $db->prepare('UPDATE discussion_answers SET responses = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?');
+        $stmt->execute([$responsesJson, $existing['id']]);
+    } else {
+        $hash = password_hash($password, PASSWORD_BCRYPT);
+        $stmt = $db->prepare('INSERT INTO discussion_answers (chapter_slug, author_name, author_password_hash, responses) VALUES (?, ?, ?, ?)');
+        $stmt->execute([$chapterSlug, $authorName, $hash, $responsesJson]);
+    }
+
+    unset($_SESSION['edit_answers']);
+    header('Location: /discussions?chapter=' . urlencode($chapterSlug) . '&saved=1');
+}
+
+function handleDiscussionLoad(): void {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        header('Location: /discussions');
+        return;
+    }
+
+    $db = getDb();
+    $chapterSlug = trim($_POST['chapter_slug'] ?? '');
+    $authorName = trim($_POST['author_name'] ?? '');
+    $password = $_POST['author_password'] ?? '';
+
+    $stmt = $db->prepare('SELECT * FROM discussion_answers WHERE chapter_slug = ? AND LOWER(author_name) = LOWER(?)');
+    $stmt->execute([$chapterSlug, $authorName]);
+    $existing = $stmt->fetch();
+
+    if ($existing && password_verify($password, $existing['author_password_hash'])) {
+        $_SESSION['edit_answers'] = [
+            'author_name' => $existing['author_name'],
+            'responses' => json_decode($existing['responses'], true),
+        ];
+        header('Location: /discussions?chapter=' . urlencode($chapterSlug) . '&editing=1');
+    } else {
+        header('Location: /discussions?chapter=' . urlencode($chapterSlug) . '&error=not_found');
+    }
+}
+
+function handleDiscussionDelete(): void {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isAdmin()) {
+        header('Location: /discussions');
+        return;
+    }
+
+    if (!verifyCsrf()) {
+        header('Location: /discussions');
+        return;
+    }
+
+    $db = getDb();
+    $answerId = (int)($_POST['answer_id'] ?? 0);
+    $chapterSlug = $_POST['chapter_slug'] ?? '';
+
+    if ($answerId > 0) {
+        $stmt = $db->prepare('DELETE FROM discussion_answers WHERE id = ?');
+        $stmt->execute([$answerId]);
+    }
+
+    header('Location: /discussions?chapter=' . urlencode($chapterSlug));
 }
 
 function handleImageUpload(array $file): ?string {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($pageTitle) ?></title>
-    <link rel="stylesheet" href="/style.css?v=7">
+    <link rel="stylesheet" href="/style.css?v=8">
 </head>
 <body>
 
@@ -36,6 +36,8 @@
         <a href="/sessions"<?= isActive('sessions') ?>>Session Notes</a>
         <span class="sep">&#9830;</span>
         <a href="/commentators"<?= isActive('commentators') ?>>Commentators</a>
+        <span class="sep">&#9830;</span>
+        <a href="/discussions"<?= isActive('discussions') ?>>Discussions</a>
         <span class="sep">&#9830;</span>
         <a href="/resources"<?= isActive('resources') ?>>Resources</a>
         <span class="sep">&#9830;</span>
